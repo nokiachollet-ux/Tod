@@ -374,31 +374,10 @@ img.is-broken { opacity: 0 !important; }
 .work figcaption span { font-family: var(--font-title); font-weight: 700; font-size: 18px; }
 .work figcaption small { font-size: 13px; opacity: .8; }
 
-/* ---------- Avis ---------- */
-.reviews { padding-top: 0; }
-.rating { display: inline-flex; align-items: center; gap: 12px; margin-top: 22px; padding: 10px 18px; border-radius: 999px; background: var(--white); box-shadow: var(--shadow-sm); font-size: 15px; }
-.rating__stars, .review__stars { color: #E0A33A; letter-spacing: 2px; }
-.reviews__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.review {
-  margin: 0; padding: 36px 32px; border-radius: var(--radius-lg);
-  background: var(--white); box-shadow: var(--shadow-sm);
-  display: flex; flex-direction: column; gap: 18px;
-  transition: transform .5s var(--ease), box-shadow .5s var(--ease);
-}
-.review:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-.review p { margin: 0; font-size: 16px; color: var(--text); flex: 1; }
-.review footer { display: flex; align-items: center; gap: 14px; padding-top: 18px; border-top: 1px solid var(--line); }
-.review footer strong { display: block; color: var(--navy); font-family: var(--font-title); font-size: 15px; }
-.review footer small { color: var(--muted); font-size: 13px; }
-.review__avatar { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--navy); color: var(--white); font-family: var(--font-title); font-weight: 700; }
-
 /* ---------- Zone ---------- */
 .zone { padding-top: 0; }
 .zone__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(48px, 7vw, 100px); align-items: center; }
 .zone__text p { font-size: 17px; margin-top: 24px; }
-.zone__towns { display: flex; flex-wrap: wrap; gap: 10px; margin: 28px 0; }
-.zone__towns li { padding: 8px 16px; border-radius: 999px; background: var(--white); border: 1px solid var(--line); font-size: 14px; font-weight: 500; color: var(--navy); }
-.zone__towns li:first-child { background: var(--navy); color: var(--white); border-color: var(--navy); }
 .zone__note { font-size: 15px !important; color: var(--muted); }
 .zone__note a { color: var(--terracotta); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
 
@@ -556,6 +535,7 @@ img.is-broken { opacity: 0 !important; }
 .member small { color: var(--muted); font-size: 14px; }
 
 .timeline-section { padding-top: 0; }
+.guarantees + .timeline-section { padding-top: var(--section); }
 .timeline { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
 .timeline__line { position: absolute; left: 0; right: 0; top: 18px; height: 2px; background: var(--line); }
 .timeline__line span { position: absolute; inset: 0; background: var(--terracotta); transform-origin: left; }
@@ -676,7 +656,6 @@ a.contact-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md)
   .zone__map { max-width: 520px; width: 100%; margin-inline: auto; }
   .process__list { grid-template-columns: repeat(2, 1fr); row-gap: 48px; }
   .process__line { display: none; }
-  .reviews__grid { grid-template-columns: 1fr; max-width: 640px; margin-inline: auto; }
   .works__grid { grid-template-columns: 1fr 1fr; grid-template-rows: 380px 260px 260px; }
   .service-detail, .faq__grid, .contact-page__grid { grid-template-columns: 1fr; }
   .service-detail--reverse .service-detail__img { order: 0; }
@@ -723,7 +702,16 @@ a.contact-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md)
   .member__photo { aspect-ratio: 16 / 11; }
   .cta-band__actions, .cta-band__actions .btn { width: 100%; }
   .faq summary { font-size: 16px; }
-  .footer__grid { grid-template-columns: 1fr; gap: 36px; }
+  /* Footer compact : marque pleine largeur, Navigation | Services, Contact en 2 colonnes */
+  .footer { padding-top: 56px; font-size: 14px; }
+  .footer__grid { grid-template-columns: 1fr 1fr; gap: 32px 20px; padding-bottom: 40px; }
+  .footer__brand, .footer__contact { grid-column: 1 / -1; }
+  .footer__brand p { margin: 0; }
+  .logo--light { margin-bottom: 14px; }
+  .footer h4 { margin-bottom: 12px; }
+  .footer__contact ul { grid-template-columns: 1fr 1fr; gap: 10px 20px; }
+  .footer__contact li { overflow-wrap: anywhere; }
+  .footer__bottom { padding-block: 20px; }
 
   /* Barre d'action toujours visible */
   .mobile-bar {
@@ -742,7 +730,7 @@ a.contact-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md)
 @media (max-width: 600px) {
   .hero__actions .btn { flex: 1 1 100%; }
   .services__grid, .guarantees__grid { grid-template-columns: 1fr; }
-  .town text { font-size: 16px; }
+  .town text { font-size: 15px; }
 }
 
 /* Petits téléphones (≤ 400 px) : les boutons peuvent passer sur deux lignes */
