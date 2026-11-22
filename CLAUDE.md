@@ -55,15 +55,14 @@ Also avoid repeating the same fact within a single page (e.g. "un seul interlocu
 
 `script.js` sets the hero's `top` to `min(0, innerHeight − heroHeight)`. This makes a hero taller than the viewport scroll to its bottom before it sticks. Don't reintroduce a fixed `height: 100vh` on `.hero`: the content would hide under the header on short laptops.
 
-**Section spacing.** `.section` adds `padding-block: var(--section)`. Many sections reset `padding-top: 0` so that two light sections in a row don't stack two paddings. A light section that follows the dark `.guarantees` panel gets its top padding back via `.guarantees + .section`. When reordering sections, avoid placing two dark blocks (`.guarantees`, `.cta-band`) next to each other.
+**Section spacing.** `.section` adds `padding-block: var(--section)`, and one general rule, `.section + :where(.section) { padding-top: 0 }`, stops two light sections in a row from stacking two paddings. The dark blocks (`.guarantees`, `.cta-band`) don't carry `.section`, so a light section after them keeps its full top padding with no extra rule. Don't add per-section `padding-top: 0` resets. Deliberate exceptions are plain class rules placed later in `style.css` (`.values`, `.about--page`, `.service-details`, `.chips-nav`); the `:where()` keeps the general rule weak enough for them to win. When reordering sections, avoid placing two dark blocks next to each other.
 
 **Animations (`script.js` + CSS).** The animation system works in three layers:
 - **Gating.** An inline script in each `<head>` adds `.js`, and adds `.anim` unless reduced motion is requested. The hidden initial states (`.js.anim [data-reveal]`, `[data-reveal-img]`, the hero lines) are scoped to `.js.anim`. If GSAP fails to load or the user prefers reduced motion, `script.js` removes `.anim` and everything stays visible. Any new hidden-until-animated state must follow the same pattern.
-- **Data-attribute hooks**, set in the HTML and handled generically (`data-count` and the timeline/process lines are unused on some pages; the JS skips what it doesn't find):
+- **Data-attribute hooks**, set in the HTML and handled generically:
   - `data-reveal`: fade/slide in on scroll, via `ScrollTrigger.batch`. After the animation, the element gets `.is-in` and its inline styles are cleared so the CSS hover transitions work again.
   - `data-reveal-img`: clip-path "curtain" reveal.
   - `data-parallax`: scrubbed image parallax. The image is 120% tall, with `margin-top: -10%`.
-  - `data-count` (with `data-decimals`): number counters, formatted for `fr-FR`.
 - **Non-animation behaviour** sits above the GSAP early `return` in `script.js`, so it runs even without GSAP: footer year, broken-image fallback, header scroll state, hero sticky offset, mobile menu, form validation.
 
 **Mobile menu.** Below 960 px, `#nav-links` becomes a full-screen overlay. It is hidden with `clip-path` plus `visibility`, so links aren't focusable while it is closed. It is scrollable for landscape phones. The JS closes it when the window is resized past 960 px; keep that value in sync with the CSS breakpoint.
