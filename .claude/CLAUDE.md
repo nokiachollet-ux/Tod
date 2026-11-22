@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-A static, French-language showcase website for **TF Renov64**, a renovation and construction company based in Orthez (64300). Plain HTML/CSS/JS: no build step, no package manager, no tests. It is deployed with **GitHub Pages from the `main` branch root**: https://nokiachollet-ux.github.io/Tod/ (Pages caches pages for about 10 min).
+A static, French-language showcase website for **TF Renov64**, a renovation and construction company based in Orthez (64300). Plain HTML/CSS/JS: no build step, no package manager, no tests. It is deployed with **GitHub Pages from the `main` branch root** on the custom domain **https://tfrenov64.fr** (the `CNAME` file; registrar IONOS, DNS: 4 A records to GitHub's 185.199.108–111.153 and `www` CNAME to `nokiachollet-ux.github.io`). The old https://nokiachollet-ux.github.io/Tod/ redirects there. `main` is protected by a ruleset (PR required), so GitHub's own "Custom domain" field can't commit `CNAME`: change the domain through a PR. Pages caches pages for about 10 min.
 
 Business details supplied by the owner (use exactly these):
 - Mobile 06 56 79 34 65 (`tel:+33656793465`), used for every "call" button. Landline 09 51 05 57 38 (`tel:+33951055738`), shown in the topbar, the footer and the contact page.
@@ -32,7 +32,7 @@ There is no test suite. Check layout changes in headless Chromium (Playwright is
 
 ## Architecture
 
-**Pages.** There are 5 pages: `index.html`, `a-propos.html`, `services.html`, `contact.html`, plus `mentions-legales.html` (legal notice + privacy policy at `#confidentialite`, `noindex`, linked from the footer only; no nav item is active on it). They all share one `style.css` and one `script.js`. The header, the mobile menu, the footer and the `.mobile-bar` (sticky Call / Quote bar shown below 768 px) are **duplicated verbatim in each HTML file**. A change to any of them must be made in all 5 files.
+**Pages.** There are 5 pages (plus `404.html`, below): `index.html`, `a-propos.html`, `services.html`, `contact.html`, plus `mentions-legales.html` (legal notice + privacy policy at `#confidentialite`, `noindex`, linked from the footer only; no nav item is active on it). They all share one `style.css` and one `script.js`. The header, the mobile menu, the footer and the `.mobile-bar` (sticky Call / Quote bar shown below 768 px) are **duplicated verbatim in each HTML file**. A change to any of them must be made in all 5 files.
 
 **Services structure (owner's request: keep it simple for customers).** The client's trades are grouped into **three families**, used everywhere (home cards, Services page details + quick-access chips, footer, the "what to tell us" list on Contact):
 1. **Toiture** (`#toiture`): couverture, charpente, zinguerie.
@@ -71,8 +71,10 @@ Also avoid repeating the same fact within a single page (e.g. "un seul interlocu
 - Each `<h1>` starts with a `.hero__kicker` span (eyebrow style) carrying the page's keyword + town (e.g. "Couvreur, maçon et plaquiste à Orthez"), followed by the visual slogan lines. Keep one distinct target query per page; titles ≤ 60 characters, descriptions ≤ 160.
 - The trade nouns people search for (couvreur, charpentier, zingueur, maçon, ravalement, plaquiste, peintre, carreleur) appear in the Services intro paragraphs; keep them when rewriting copy.
 - Internal links use descriptive anchors ("Nos travaux de toiture", not "Voir le détail"); trade mentions in body text link to the matching `services.html#…` anchor.
-- **The site is indexable** (the former github.io-only `noindex` script was removed so PageSpeed Insights can audit SEO). Only `mentions-legales.html` keeps a static `noindex`. If a duplicate go-live domain is added later, set a canonical to the final domain.
-- Not done yet (need the final domain or owner input): canonical, sitemap.xml, robots.txt, 404 page, Open Graph, JSON-LD.
+- **Indexable pages** (`index`, `a-propos`, `services`, `contact`) each carry an absolute `<link rel="canonical">` on `https://tfrenov64.fr/…` (home is `/`) and Open Graph tags (title/description copied from the page, image = the page's hero photo at `w=1200`). Keep them in sync when a title or description changes. They are the only URLs in `sitemap.xml`; `robots.txt` allows everything and points to the sitemap.
+- `mentions-legales.html` and `404.html` are `noindex` and stay out of the sitemap.
+- **JSON-LD** (`HomeAndConstructionBusiness`) is on the home page only, with owner-supplied data only (name, phones, Orthez 64300, the 3 departments, SIRET). Don't add hours, reviews, street address or ratings until the owner provides them.
+- **`404.html`** is served by GitHub Pages for any unknown URL, at any depth, so all its local links and assets use root-absolute paths (`/style.css`, `/index.html`). It reuses the shared header/footer (no active nav item).
 
 **Mobile menu.** Below 960 px, `#nav-links` becomes a full-screen overlay. It is hidden with `clip-path` plus `visibility`, so links aren't focusable while it is closed. It is scrollable for landscape phones. The JS closes it when the window is resized past 960 px; keep that value in sync with the CSS breakpoint.
 
