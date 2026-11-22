@@ -94,7 +94,6 @@
   gsap.registerPlugin(ScrollTrigger);
   gsap.defaults({ ease: 'power3.out' });
 
-  const $ = (sel) => document.querySelector(sel);
   const has = (sel) => document.querySelectorAll(sel).length > 0;
 
   /* ---------- 1. Entrée du hero (accueil et pages intérieures) ---------- */
@@ -111,8 +110,6 @@
       step(sel, { y: 20, duration: .9 }, at, 'from');
     });
     step('.hero__title .line > span', { y: 0, yPercent: 0, duration: 1.25, stagger: .13, ease: 'power4.out' }, .55);
-    step('.hero__badges', { opacity: 1, duration: .9 }, 1.45);
-    step('.hero__badges li', { y: 14, opacity: 0, duration: .7, stagger: .08 }, 1.45, 'from');
     step('.hero__scroll', { opacity: 1, duration: 1 }, 1.8);
   }
 
@@ -175,23 +172,7 @@
     });
   });
 
-  /* ---------- 6. Compteurs ---------- */
-  const fmt = (value, decimals) => value.toLocaleString('fr-FR', {
-    minimumFractionDigits: decimals, maximumFractionDigits: decimals
-  });
-  gsap.utils.toArray('[data-count]').forEach((el) => {
-    const target = parseFloat(el.dataset.count);
-    const decimals = parseInt(el.dataset.decimals || '0', 10);
-    const state = { v: 0 };
-    el.textContent = fmt(0, decimals);
-    gsap.to(state, {
-      v: target, duration: 2.2, ease: 'power2.out',
-      scrollTrigger: { trigger: el, start: 'top 90%', once: true },
-      onUpdate: () => { el.textContent = fmt(state.v, decimals); }
-    });
-  });
-
-  /* ---------- 7. Transition vers la section sombre ---------- */
+  /* ---------- 6. Transition vers la section sombre ---------- */
   if (has('.guarantees__panel')) gsap.fromTo('.guarantees__panel',
     { clipPath: 'inset(0% 3% 0% 3% round 28px)' },
     {
@@ -199,13 +180,10 @@
       scrollTrigger: { trigger: '.guarantees', start: 'top bottom', end: 'top 25%', scrub: true }
     });
 
-  /* ---------- 8. Lignes de progression (méthode, frise) ---------- */
-  [['.process__line span', '.process__list'], ['.timeline__line span', '.timeline']].forEach(([line, trigger]) => {
-    if (!has(line)) return;
-    gsap.fromTo(line, { scaleX: 0 }, {
-      scaleX: 1, ease: 'none',
-      scrollTrigger: { trigger, start: 'top 75%', end: 'bottom 55%', scrub: true }
-    });
+  /* ---------- 7. Ligne de progression des étapes (page Services) ---------- */
+  if (has('.process__line span')) gsap.fromTo('.process__line span', { scaleX: 0 }, {
+    scaleX: 1, ease: 'none',
+    scrollTrigger: { trigger: '.process__list', start: 'top 75%', end: 'bottom 55%', scrub: true }
   });
 
   // Recalcule les positions une fois toutes les images chargées
