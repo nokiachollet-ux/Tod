@@ -3,14 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nos services — TF Renov64, rénovation et construction à Orthez</title>
-  <meta name="description" content="Toiture (couverture, charpente, zinguerie), maçonnerie et façades (enduits, peinture extérieure), rénovation intérieure (placo, peinture, carrelage, salles de bains) à Orthez et dans le 64, 40 et 65.">
+  <title>Couvreur, maçon, rénovation intérieure à Orthez | TF Renov64</title>
+  <meta name="description" content="Couvreur, charpentier, maçon, plaquiste et carreleur à Orthez : toiture, ravalement de façade, rénovation intérieure et salle de bain, dans le 64, 40 et 65.">
   <meta name="theme-color" content="#1F2A44">
 
-  <!-- Active les états initiaux des animations uniquement si JS est disponible -->
+  <!-- Active les états initiaux des animations uniquement si JS est disponible.
+       Pas d'animation sur un écran très haut (> 1600 px) : c'est le cas des robots d'indexation,
+       qui ne font pas défiler la page et verraient sinon des blocs encore masqués.
+       Copie de prévisualisation (github.io) : on demande aux moteurs de ne pas l'indexer,
+       pour qu'elle ne fasse pas doublon avec le futur domaine. Rien à retirer à la migration. -->
   <script>
     document.documentElement.classList.add('js');
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('anim');
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && window.innerHeight <= 1600) document.documentElement.classList.add('anim');
+    if (/\.github\.io$/.test(location.hostname)) {
+      var robots = document.createElement('meta');
+      robots.name = 'robots'; robots.content = 'noindex';
+      document.head.appendChild(robots);
+    }
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -91,6 +100,7 @@
           <a href="index.html">Accueil</a><span aria-hidden="true">/</span><span aria-current="page">Services</span>
         </nav>
         <h1 class="hero__title">
+          <span class="eyebrow eyebrow--light hero__kicker"><span class="eyebrow__dot"></span>Couvreur, maçon et plaquiste à Orthez</span>
           <span class="line"><span>Nos services</span></span>
           <span class="line"><span><em>de rénovation.</em></span></span>
         </h1>
@@ -124,7 +134,7 @@
             <div class="service-detail__text">
               <p class="service-detail__num" data-reveal>01</p>
               <h2 class="section-title" data-reveal>Toiture</h2>
-              <p data-reveal>Le toit protège toute la maison. Nous le rénovons, le réparons ou le créons, de la charpente jusqu'à l'évacuation des eaux de pluie.</p>
+              <p data-reveal>Le toit protège toute la maison. Couvreur, charpentier et zingueur, nous le rénovons, le réparons ou le créons, de la charpente jusqu'à l'évacuation des eaux de pluie.</p>
               <ul class="checklist checklist--detail" data-reveal>
                 <li><strong>Couverture</strong><span>Réfection complète ou partielle, tuiles et ardoises, réparation de fuites.</span></li>
                 <li><strong>Charpente</strong><span>Création, renforcement ou remplacement des pièces abîmées.</span></li>
@@ -141,10 +151,10 @@
             <div class="service-detail__text">
               <p class="service-detail__num" data-reveal>02</p>
               <h2 class="section-title" data-reveal>Maçonnerie &amp; façades</h2>
-              <p data-reveal>Des murs sains et une façade soignée protègent votre maison des intempéries et lui redonnent de la valeur.</p>
+              <p data-reveal>Des murs sains et une façade soignée protègent votre maison des intempéries et lui redonnent de la valeur. Maçon de métier, nous assurons aussi le ravalement de façade.</p>
               <ul class="checklist checklist--detail" data-reveal>
                 <li><strong>Maçonnerie</strong><span>Construction et reprise de murs, création ou modification d'ouvertures.</span></li>
-                <li><strong>Enduits de façade</strong><span>Réfection ou création d'enduit, traitement des fissures.</span></li>
+                <li><strong>Ravalement &amp; enduits</strong><span>Réfection ou création d'enduit, traitement des fissures.</span></li>
                 <li><strong>Peinture extérieure</strong><span>Façades, volets, portails et boiseries.</span></li>
               </ul>
               <a href="contact.html#devis" class="btn btn--primary" data-reveal>Devis maçonnerie
@@ -158,7 +168,7 @@
             <div class="service-detail__text">
               <p class="service-detail__num" data-reveal>03</p>
               <h2 class="section-title" data-reveal>Rénovation intérieure</h2>
-              <p data-reveal>Une pièce à rafraîchir ou un étage à transformer&nbsp;: nous réalisons l'ensemble des travaux intérieurs, jusqu'aux finitions.</p>
+              <p data-reveal>Une pièce à rafraîchir ou un étage à transformer&nbsp;: plaquiste, peintre et carreleur, nous réalisons l'ensemble des travaux intérieurs, jusqu'à la rénovation complète de votre salle de bain.</p>
               <ul class="checklist checklist--detail" data-reveal>
                 <li><strong>Plâtrerie (placo)</strong><span>Cloisons, doublages et faux plafonds.</span></li>
                 <li><strong>Peinture intérieure</strong><span>Murs, plafonds et boiseries.</span></li>
@@ -226,7 +236,7 @@
             </details>
             <details>
               <summary>Dans quels secteurs intervenez-vous&nbsp;?</summary>
-              <p>Au départ d'Orthez, dans les Pyrénées-Atlantiques (64), les Landes (40) et les Hautes-Pyrénées (65).</p>
+              <p>Au départ d'Orthez, dans les Pyrénées-Atlantiques (64), les Landes (40) et les Hautes-Pyrénées (65). Voir notre <a href="contact.html#zone">zone d'intervention</a>.</p>
             </details>
             <details>
               <summary>Le devis est-il payant&nbsp;?</summary>
