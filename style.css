@@ -486,6 +486,14 @@ a.contact-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md)
 .contact-card--accent .contact-card__icon { background: var(--terracotta); }
 .contact-card--accent .contact-card__icon svg { stroke: var(--white); }
 
+/* Mentions légales : texte courant sur une colonne lisible */
+.legal__inner { max-width: 760px; }
+.legal h2 { font-size: clamp(20px, 2vw, 24px); margin: 48px 0 12px; }
+.legal h2:first-child { margin-top: 0; }
+.legal p { margin: 0 0 14px; color: var(--text); overflow-wrap: anywhere; }
+.legal a { color: var(--terracotta); text-decoration: underline; text-underline-offset: 3px; }
+.todo { background: #FFF1C2; color: var(--navy); padding: 0 4px; border-radius: 4px; }
+
 /* ---------- Barre mobile ---------- */
 .mobile-bar { display: none; }
 
