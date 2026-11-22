@@ -23,14 +23,14 @@ python3 -m http.server 8765     # then open http://localhost:8765/index.html
 GSAP, Google Fonts and every photo (Unsplash/Pexels, hotlinked) load from CDNs, so the page needs network access to look right. Without GSAP the site still renders fully, just without animations (see below).
 
 There is no test suite. Check layout changes in headless Chromium (Playwright is preinstalled in cloud sessions; use `NODE_PATH=$(npm root -g) node script.js`):
-- **No horizontal scroll:** `document.documentElement.scrollWidth <= clientWidth` on all 4 pages, at widths from 320 to 1920 px.
+- **No horizontal scroll:** `document.documentElement.scrollWidth <= clientWidth` on all 5 pages, at widths from 320 to 1920 px.
 - **Short laptop viewports** (1280×650, 1366×680), to check the hero.
 - **The mobile menu in landscape** (740×360).
 - **The page with real animations:** run it without `reducedMotion: 'reduce'` and scroll the page; otherwise `[data-reveal]` elements stay hidden.
 
 ## Architecture
 
-**Pages.** There are 4 pages: `index.html`, `a-propos.html`, `services.html`, `contact.html`. They all share one `style.css` and one `script.js`. The header, the mobile menu, the footer and the `.mobile-bar` (sticky Call / Quote bar shown below 768 px) are **duplicated verbatim in each HTML file**. A change to any of them must be made in all 4 files.
+**Pages.** There are 5 pages: `index.html`, `a-propos.html`, `services.html`, `contact.html`, plus `mentions-legales.html` (legal notice + privacy policy at `#confidentialite`, `noindex`, linked from the footer only; no nav item is active on it). They all share one `style.css` and one `script.js`. The header, the mobile menu, the footer and the `.mobile-bar` (sticky Call / Quote bar shown below 768 px) are **duplicated verbatim in each HTML file**. A change to any of them must be made in all 5 files.
 
 **Services structure (owner's request: keep it simple for customers).** The client's trades are grouped into **three families**, used everywhere (home cards, Services page details + quick-access chips, footer, the "what to tell us" list on Contact):
 1. **Toiture** (`#toiture`): couverture, charpente, zinguerie.
