@@ -14,7 +14,7 @@ Business details supplied by the owner (use exactly these):
 
 All user-facing copy is in French.
 
-**Public repository.** The repo must stay public for free GitHub Pages, so everything committed is readable by anyone, and every file outside a dot-folder is also served on the live site. Keep this guide in `.claude/` (Jekyll never publishes dot-folders) and don't add notes, prompts, drafts or a README at the root. Never commit anything the owner hasn't made public: personal email, home address, client names, quotes, invoices, credentials.
+**Public repository.** The repo must stay public for free GitHub Pages, so everything committed is readable by anyone, and every file outside a dot-folder is also served on the live site. Keep this guide in `.claude/` (Jekyll never publishes dot-folders) and don't add notes, prompts, drafts or a README at the root. Never commit anything the owner hasn't made public: personal email, home address, client names, quotes, invoices, credentials. **No comments in HTML, CSS or JS**: they are readable in the page source; explain design decisions in this guide instead.
 
 ## Running locally
 
