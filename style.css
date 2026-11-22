@@ -98,7 +98,6 @@ img.is-broken { opacity: 0 !important; }
 
 .btn--sm { padding: 11px 20px; font-size: 14px; }
 .btn--lg { padding: 18px 30px; font-size: 16px; }
-.btn--block { width: 100%; }
 
 .link-arrow {
   display: inline-flex; align-items: center; gap: 8px;
@@ -289,7 +288,8 @@ img.is-broken { opacity: 0 !important; }
 .about__badge strong { font-family: var(--font-title); font-size: 52px; font-weight: 800; line-height: 1; letter-spacing: -.03em; }
 .about__badge > span { font-size: 14px; line-height: 1.35; font-weight: 500; }
 .about__text p { font-size: 17px; margin-top: 24px; }
-.checklist { margin: 32px 0 40px; display: grid; gap: 14px; }
+.checklist { display: grid; gap: 14px; }
+.about__text .checklist { margin: 32px 0 40px; }
 .checklist li { position: relative; padding-left: 36px; font-weight: 500; color: var(--navy); }
 .checklist li::before {
   content: ""; position: absolute; left: 0; top: 1px;
@@ -459,18 +459,17 @@ img.is-broken { opacity: 0 !important; }
 .contact-box {
   display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 64px); align-items: start;
   background: var(--white); border-radius: var(--radius-xl); box-shadow: var(--shadow-md);
-  padding: clamp(28px, 4vw, 56px);
+  padding: clamp(20px, 5vw, 56px);
 }
 .contact-box > * { min-width: 0; }
 .contact-box h2 { font-size: clamp(24px, 2.4vw, 30px); margin-bottom: 8px; }
 .contact-box__intro { color: var(--muted); margin-bottom: 28px; }
 .contact-box__label { font-size: 13px; font-weight: 600; color: var(--navy); margin-bottom: 14px; }
-.contact-box__list { margin: 0; }
 .contact-box__note { margin: 4px 0 0; font-size: 13px; color: var(--muted); }
 .contact-cards { display: grid; gap: 14px; }
 .contact-card {
-  display: flex; align-items: flex-start; gap: 18px;
-  padding: 22px 24px; border-radius: var(--radius-lg); background: var(--cream);
+  display: flex; align-items: flex-start; gap: clamp(14px, 4vw, 18px);
+  padding: clamp(18px, 5vw, 24px); border-radius: var(--radius-lg); background: var(--cream);
   transition: transform .4s var(--ease), box-shadow .4s var(--ease);
 }
 a.contact-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
@@ -620,8 +619,6 @@ a.contact-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md)
   .btn--lg { padding: 16px 20px; }
   .mobile-bar .btn { padding: 12px 10px; font-size: 14px; }
   .mobile-bar__call { padding: 0 12px; font-size: 14px; }
-  .contact-box { padding: 24px 18px; }
-  .contact-card { padding: 18px; gap: 14px; }
 }
 
 /* Menu mobile en paysage (écrans peu hauts) */
