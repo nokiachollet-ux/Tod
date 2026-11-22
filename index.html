@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[NOM] — Couvreur à [VILLE] | Couverture, réparation, isolation, zinguerie</title>
+  <meta name="description" content="[NOM], artisan couvreur à [VILLE] ([DÉPARTEMENT]). Couverture, réparation de toiture, isolation, zinguerie. Devis gratuit sous 48 h, garantie décennale.">
+  <meta name="theme-color" content="#1F2A44">
+
+  <!-- Active les états initiaux des animations uniquement si JS est disponible -->
+  <script>
+    document.documentElement.classList.add('js');
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('anim');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-home">
+
+
+  <!-- ===================================================
+       EN-TÊTE : bandeau contact + menu fixe
+       =================================================== -->
+  <header class="site-header" id="top">
+    <div class="topbar">
+      <div class="container topbar__inner">
+        <p class="topbar__zone">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <span>Intervention à [VILLE] et dans tout le [DÉPARTEMENT]</span>
+        </p>
+        <div class="topbar__links">
+          <a href="mailto:[EMAIL]">[EMAIL]</a>
+          <span class="topbar__sep" aria-hidden="true"></span>
+          <span>Lun – Sam · 8h – 19h</span>
+        </div>
+      </div>
+    </div>
+
+    <nav class="nav" aria-label="Navigation principale">
+      <div class="container nav__inner">
+        <a href="index.html" class="logo" aria-label="[NOM], retour à l'accueil">
+          <svg class="logo__mark" viewBox="0 0 40 40" aria-hidden="true">
+            <path d="M4 22 20 8l16 14" />
+            <path d="M10 18v14h20V18" />
+            <path d="M28 12V7h4v8.5" />
+          </svg>
+          <span class="logo__text">[NOM]<small>Couverture · Zinguerie</small></span>
+        </a>
+
+        <ul class="nav__links" id="nav-links">
+          <li><a href="index.html" class="is-active" aria-current="page">Accueil</a></li>
+          <li><a href="a-propos.html">À propos</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li class="nav__links-cta"><a href="tel:[TÉLÉPHONE]" class="btn btn--ghost-dark">Appeler le [TÉLÉPHONE]</a></li>
+        </ul>
+
+        <div class="nav__actions">
+          <a href="tel:[TÉLÉPHONE]" class="nav__phone" aria-label="Appeler le [TÉLÉPHONE]">
+            <span class="nav__phone-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+            </span>
+            <span class="nav__phone-text"><small>Appel gratuit</small>[TÉLÉPHONE]</span>
+          </a>
+          <a href="contact.html#devis" class="btn btn--primary btn--sm nav__cta">
+            Demander un devis
+          </a>
+          <button class="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links">
+            <span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+<main>
+
+    <!-- ===================================================
+         HERO
+         =================================================== -->
+    <section class="hero" aria-label="Présentation">
+      <div class="hero__media">
+        <!-- Placeholder Unsplash : remplacer par une photo de vos chantiers -->
+        <img src="https://images.unsplash.com/photo-1745478433539-90d9a2e8579e?auto=format&fit=crop&w=2200&q=80"
+             srcset="https://images.unsplash.com/photo-1745478433539-90d9a2e8579e?auto=format&fit=crop&w=800&q=80 800w, https://images.unsplash.com/photo-1745478433539-90d9a2e8579e?auto=format&fit=crop&w=1400&q=80 1400w, https://images.unsplash.com/photo-1745478433539-90d9a2e8579e?auto=format&fit=crop&w=2200&q=80 2200w"
+             sizes="100vw"
+             alt="Couvreur posant des tuiles sur une toiture en chantier" fetchpriority="high">
+      </div>
+      <div class="hero__overlay" aria-hidden="true"></div>
+
+      <div class="container hero__content">
+        <p class="eyebrow eyebrow--light hero__eyebrow">
+          <span class="eyebrow__dot"></span>Artisan couvreur à [VILLE] depuis [ANNÉE]
+        </p>
+        <h1 class="hero__title">
+          <span class="line"><span>Votre toiture,</span></span>
+          <span class="line"><span>entre des mains</span></span>
+          <span class="line"><span><em>de confiance.</em></span></span>
+        </h1>
+        <p class="hero__lead">
+          Couverture, réparation, isolation et zinguerie pour les particuliers.
+          Un interlocuteur unique, un devis clair et des travaux garantis 10 ans.
+        </p>
+        <div class="hero__actions">
+          <a href="contact.html#devis" class="btn btn--primary btn--lg">
+            Demander un devis gratuit
+            <svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="tel:[TÉLÉPHONE]" class="btn btn--glass btn--lg">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+            [TÉLÉPHONE]
+          </a>
+        </div>
+        <ul class="hero__badges">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg>Garantie décennale</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Devis sous 48 h</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z"/></svg>4,9/5 sur Google</li>
+        </ul>
+      </div>
+
+      <a href="#chiffres" class="hero__scroll" aria-label="Faire défiler vers le contenu">
+        <span>Découvrir</span>
+        <span class="hero__scroll-line"></span>
+      </a>
+    </section>
+
+    <!-- Contenu qui glisse par-dessus le hero -->
+    <div class="sheet">
+
+      <!-- ===================================================
+           CHIFFRES CLÉS
+           (exemples à remplacer par vos vrais chiffres)
+           =================================================== -->
+      <section class="stats" id="chiffres" aria-label="Chiffres clés">
+        <div class="container stats__grid">
+          <div class="stat" data-reveal>
+            <p class="stat__num"><span data-count="25">25</span><sup>ans</sup></p>
+            <p class="stat__label">d'expérience dans la couverture</p>
+          </div>
+          <div class="stat" data-reveal>
+            <p class="stat__num"><span data-count="1200" data-format="space">1 200</span><sup>+</sup></p>
+            <p class="stat__label">toitures rénovées ou réparées</p>
+          </div>
+          <div class="stat" data-reveal>
+            <p class="stat__num"><span data-count="4.9" data-decimals="1">4,9</span><sup>/5</sup></p>
+            <p class="stat__label">note moyenne de nos clients</p>
+          </div>
+          <div class="stat" data-reveal>
+            <p class="stat__num"><span data-count="48">48</span><sup>h</sup></p>
+            <p class="stat__label">pour recevoir votre devis</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================
+           SERVICES
+           =================================================== -->
+      <section class="section services" id="services">
+        <div class="container">
+          <header class="section-head">
+            <p class="eyebrow" data-reveal><span class="eyebrow__dot"></span>Nos services</p>
+            <h2 class="section-title" data-reveal>Tout pour votre toit,<br>du faîtage à la gouttière.</h2>
+            <p class="section-intro" data-reveal>
+              Que ce soit pour une fuite urgente ou une rénovation complète,
+              nous intervenons avec le même soin et des matériaux de qualité.
+            </p>
+          </header>
+
+          <div class="services__grid">
+            <article class="service-card" data-reveal>
+              <div class="service-card__media">
+                <img src="https://images.pexels.com/photos/10971733/pexels-photo-10971733.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Toiture à deux pans avec lucarne" loading="lazy">
+              </div>
+              <div class="service-card__body">
+                <span class="service-card__num">01</span>
+                <h3>Couverture</h3>
+                <p>Rénovation ou création de toiture en tuiles, ardoises ou zinc, charpente et écran sous-toiture.</p>
+                <a href="services.html#couverture" class="link-arrow">En savoir plus <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+
+            <article class="service-card" data-reveal>
+              <div class="service-card__media">
+                <img src="https://images.unsplash.com/photo-1726589004565-bedfba94d3a2?auto=format&fit=crop&w=1000&q=80" alt="Couvreur en intervention sur un toit" loading="lazy">
+              </div>
+              <div class="service-card__body">
+                <span class="service-card__num">02</span>
+                <h3>Réparation &amp; urgences</h3>
+                <p>Recherche de fuite, tuiles cassées, bâchage après tempête. Intervention rapide pour mettre votre maison hors d'eau.</p>
+                <a href="services.html#reparation" class="link-arrow">En savoir plus <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+
+            <article class="service-card" data-reveal>
+              <div class="service-card__media">
+                <img src="https://images.pexels.com/photos/233267/pexels-photo-233267.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Fenêtre de toit sur une couverture en tuiles" loading="lazy">
+              </div>
+              <div class="service-card__body">
+                <span class="service-card__num">03</span>
+                <h3>Isolation</h3>
+                <p>Isolation des combles et sarking pour un intérieur plus confortable et des factures de chauffage allégées.</p>
+                <a href="services.html#isolation" class="link-arrow">En savoir plus <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+
+            <article class="service-card" data-reveal>
+              <div class="service-card__media">
+                <img src="https://images.unsplash.com/photo-1654531015087-8cc3d04d1b2d?auto=format&fit=crop&w=1000&q=80" alt="Gouttière et descente d'eaux pluviales en zinc" loading="lazy">
+              </div>
+              <div class="service-card__body">
+                <span class="service-card__num">04</span>
+                <h3>Zinguerie</h3>
+                <p>Gouttières, descentes, chéneaux et habillages en zinc façonnés sur mesure pour une évacuation parfaite.</p>
+                <a href="services.html#zinguerie" class="link-arrow">En savoir plus <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+            </article>
+          </div>
+
+          <ul class="services__more" data-reveal>
+            <li>Démoussage &amp; traitement</li>
+            <li>Fenêtres de toit</li>
+            <li>Ramonage &amp; souches de cheminée</li>
+            <li>Diagnostic de toiture</li>
+          </ul>
+          <div class="section-cta" data-reveal>
+            <a href="services.html" class="btn btn--outline">Voir tous nos services
+              <svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================
+           À PROPOS / EXPÉRIENCE
+           =================================================== -->
+      <section class="section about" id="apropos">
+        <div class="container about__grid">
+          <div class="about__visual">
+            <div class="about__img" data-reveal-img data-parallax>
+              <img src="https://images.unsplash.com/photo-1726589004565-bedfba94d3a2?auto=format&fit=crop&w=1400&q=80" alt="Artisan couvreur au travail sur une toiture" loading="lazy">
+            </div>
+            <div class="about__badge" data-reveal>
+              <strong><span data-count="25">25</span></strong>
+              <span>ans de savoir-faire<br>à [VILLE]</span>
+            </div>
+          </div>
+
+          <div class="about__text">
+            <p class="eyebrow" data-reveal><span class="eyebrow__dot"></span>Une entreprise locale</p>
+            <h2 class="section-title" data-reveal>Des artisans qui travaillent chez vous comme chez eux.</h2>
+            <p data-reveal>
+              Depuis [ANNÉE], [NOM] accompagne les particuliers de [VILLE] et des environs
+              dans l'entretien et la rénovation de leur toiture. Nous ne sous-traitons pas&nbsp;:
+              ce sont nos couvreurs, formés et expérimentés, qui réalisent vos travaux.
+            </p>
+            <ul class="checklist" data-reveal>
+              <li>Visite et diagnostic gratuits, sans engagement</li>
+              <li>Devis détaillé poste par poste, sans surprise</li>
+              <li>Chantier protégé, propre et rangé chaque soir</li>
+              <li>Un seul interlocuteur du premier appel à la réception</li>
+            </ul>
+            <a href="a-propos.html" class="btn btn--primary" data-reveal>
+              Découvrir notre histoire
+              <svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================
+           GARANTIES (section sombre)
+           =================================================== -->
+      <section class="guarantees" aria-labelledby="garanties-title">
+        <div class="guarantees__panel">
+          <div class="container">
+            <header class="section-head section-head--center">
+              <p class="eyebrow eyebrow--light" data-reveal><span class="eyebrow__dot"></span>Nos garanties</p>
+              <h2 class="section-title section-title--light" id="garanties-title" data-reveal>Vous êtes protégé,<br>avant, pendant et après.</h2>
+            </header>
+
+            <div class="guarantees__grid">
+              <div class="guarantee" data-reveal>
+                <div class="guarantee__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+                <h3>Garantie décennale</h3>
+                <p>Tous nos travaux sont couverts 10 ans. Attestation fournie avec chaque devis.</p>
+              </div>
+              <div class="guarantee" data-reveal>
+                <div class="guarantee__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></svg></div>
+                <h3>Devis gratuit &amp; détaillé</h3>
+                <p>Un chiffrage clair, poste par poste, envoyé sous 48 h après la visite.</p>
+              </div>
+              <div class="guarantee" data-reveal>
+                <div class="guarantee__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21a7 7 0 0 1 14 0"/></svg></div>
+                <h3>Artisans qualifiés</h3>
+                <p>Une équipe salariée et formée. <!-- Ajouter vos labels : Qualibat, RGE… si applicables --> Labels : [QUALIFICATIONS].</p>
+              </div>
+              <div class="guarantee" data-reveal>
+                <div class="guarantee__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></div>
+                <h3>Prix ferme</h3>
+                <p>Le prix signé est le prix payé. Aucun supplément sans votre accord écrit.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================
+           MÉTHODE
+           =================================================== -->
+      <section class="section process">
+        <div class="container">
+          <header class="section-head">
+            <p class="eyebrow" data-reveal><span class="eyebrow__dot"></span>Comment ça se passe</p>
+            <h2 class="section-title" data-reveal>Quatre étapes simples,<br>zéro mauvaise surprise.</h2>
+          </header>
+
+          <ol class="process__list">
+            <li class="process__line" aria-hidden="true"><span></span></li>
+            <li class="step" data-reveal>
+              <span class="step__num">1</span>
+              <h3>Vous nous contactez</h3>
+              <p>Par téléphone ou via le formulaire. Nous vous rappelons dans la journée.</p>
+            </li>
+            <li class="step" data-reveal>
+              <span class="step__num">2</span>
+              <h3>Visite &amp; diagnostic</h3>
+              <p>Un artisan inspecte votre toit, photos à l'appui, et vous explique tout.</p>
+            </li>
+            <li class="step" data-reveal>
+              <span class="step__num">3</span>
+              <h3>Devis détaillé</h3>
+              <p>Gratuit, sans engagement, reçu sous 48 h avec un planning prévisionnel.</p>
+            </li>
+            <li class="step" data-reveal>
+              <span class="step__num">4</span>
+              <h3>Travaux &amp; réception</h3>
+              <p>Chantier propre, suivi régulier, et visite de fin de travaux avec vous.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ===================================================
+           RÉALISATIONS
+           =================================================== -->
+      <section class="section works" id="realisations">
+        <div class="container">
+          <header class="section-head section-head--split">
+            <div>
+              <p class="eyebrow" data-reveal><span class="eyebrow__dot"></span>Nos réalisations</p>
+              <h2 class="section-title" data-reveal>Des chantiers dont<br>nous sommes fiers.</h2>
+            </div>
+            <p class="section-intro" data-reveal>
+              Quelques toitures récemment rénovées par notre équipe à [VILLE] et dans les communes voisines.
+            </p>
+          </header>
+
+          <div class="works__grid">
+            <figure class="work work--tall" data-reveal-img>
+              <img src="https://images.unsplash.com/photo-1745478433539-90d9a2e8579e?auto=format&fit=crop&w=1200&q=80" alt="Pose de tuiles neuves sur une maison" loading="lazy">
+              <figcaption><span>Réfection complète en tuiles</span><small>[Commune] · 140 m²</small></figcaption>
+            </figure>
+            <figure class="work" data-reveal-img>
+              <img src="https://images.pexels.com/photos/5259822/pexels-photo-5259822.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Toiture en ardoise et lucarnes rénovées" loading="lazy">
+              <figcaption><span>Couverture ardoise &amp; lucarnes</span><small>[Commune] · 95 m²</small></figcaption>
+            </figure>
+            <figure class="work" data-reveal-img>
+              <img src="https://images.unsplash.com/photo-1654531015087-8cc3d04d1b2d?auto=format&fit=crop&w=1200&q=80" alt="Gouttière en zinc neuve" loading="lazy">
+              <figcaption><span>Zinguerie sur mesure</span><small>[Commune] · 32 ml</small></figcaption>
+            </figure>
+            <figure class="work work--wide" data-reveal-img>
+              <img src="https://images.pexels.com/photos/10971733/pexels-photo-10971733.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Maison avec toiture neuve et lucarne" loading="lazy">
+              <figcaption><span>Rénovation &amp; isolation par l'extérieur</span><small>[Commune] · 120 m²</small></figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================
+           AVIS CLIENTS
+           (textes d'exemple : remplacer par vos vrais avis Google)
+           =================================================== -->
+      <section class="section reviews" id="avis">
+        <div class="container">
+          <header class="section-head section-head--center">
+            <p class="eyebrow" data-reveal><span class="eyebrow__dot"></span>Avis clients</p>
+            <h2 class="section-title" data-reveal>Ils nous ont confié leur toit.</h2>
+            <div class="rating" data-reveal>
+              <span class="rating__stars" aria-hidden="true">★★★★★</span>
+              <span><strong>4,9/5</strong> · [XX] avis vérifiés sur Google</span>
+            </div>
+          </header>
+
+          <div class="reviews__grid">
+            <blockquote class="review" data-reveal>
+              <span class="review__stars" aria-label="5 étoiles sur 5">★★★★★</span>
+              <p>« [Avis client] Équipe ponctuelle et soigneuse. Le devis était clair et le chantier laissé impeccable. »</p>
+              <footer><span class="review__avatar">A</span><div><strong>[Prénom N.]</strong><small>[Commune] · Réfection de toiture</small></div></footer>
+            </blockquote>
+            <blockquote class="review" data-reveal>
+              <span class="review__stars" aria-label="5 étoiles sur 5">★★★★★</span>
+              <p>« [Avis client] Fuite trouvée et réparée en une matinée après la tempête. Très réactifs et de bon conseil. »</p>
+              <footer><span class="review__avatar">B</span><div><strong>[Prénom N.]</strong><small>[Commune] · Réparation</small></div></footer>
+            </blockquote>
+            <blockquote class="review" data-reveal>
+              <span class="review__stars" aria-label="5 étoiles sur 5">★★★★★</span>
+              <p>« [Avis client] Isolation des combles et nouvelles gouttières : la différence se sent déjà sur le chauffage. »</p>
+              <footer><span class="review__avatar">C</span><div><strong>[Prénom N.]</strong><small>[Commune] · Isolation &amp; zinguerie</small></div></footer>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================
+           ZONE D'INTERVENTION
+           =================================================== -->
+      <section class="section zone" id="zone">
+        <div class="container zone__grid">
+          <div class="zone__text">
+            <p class="eyebrow" data-reveal><span class="eyebrow__dot"></span>Zone d'intervention</p>
+            <h2 class="section-title" data-reveal>À [VILLE] et dans un rayon de [XX] km.</h2>
+            <p data-reveal>
+              Basés à [VILLE], nous intervenons dans tout le [DÉPARTEMENT].
+              Être proches, c'est pouvoir venir vite en cas d'urgence et assurer un vrai suivi après les travaux.
+            </p>
+            <ul class="zone__towns" data-reveal>
+              <li>[VILLE]</li>
+              <li>[Commune 1]</li>
+              <li>[Commune 2]</li>
+              <li>[Commune 3]</li>
+              <li>[Commune 4]</li>
+              <li>[Commune 5]</li>
+              <li>[Commune 6]</li>
+              <li>et alentours</li>
+            </ul>
+            <p class="zone__note" data-reveal>Votre commune n'est pas listée ? <a href="tel:[TÉLÉPHONE]">Appelez-nous</a>, nous trouverons une solution.</p>
+          </div>
+
+          <div class="zone__map" data-reveal aria-hidden="true">
+            <svg viewBox="0 0 400 400">
+              <circle class="ring ring--3" cx="200" cy="200" r="180"/>
+              <circle class="ring ring--2" cx="200" cy="200" r="125"/>
+              <circle class="ring ring--1" cx="200" cy="200" r="70"/>
+              <g class="town"><circle cx="120" cy="130" r="5"/><text x="132" y="134">[Commune 1]</text></g>
+              <g class="town"><circle cx="285" cy="150" r="5"/><text x="297" y="154">[Commune 2]</text></g>
+              <g class="town"><circle cx="300" cy="275" r="5"/><text x="240" y="300">[Commune 3]</text></g>
+              <g class="town"><circle cx="105" cy="280" r="5"/><text x="60" y="305">[Commune 4]</text></g>
+              <g class="town"><circle cx="210" cy="70" r="5"/><text x="222" y="74">[Commune 5]</text></g>
+            </svg>
+            <div class="zone__pin">
+              <span class="zone__pulse"></span>
+              <span class="zone__pin-label">[VILLE]</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================
+           APPEL À L'ACTION
+           =================================================== -->
+      <section class="contact cta-band">
+        <div class="contact__bg" data-parallax>
+          <img src="https://images.pexels.com/photos/5259822/pexels-photo-5259822.jpeg?auto=compress&cs=tinysrgb&w=2000"
+             srcset="https://images.pexels.com/photos/5259822/pexels-photo-5259822.jpeg?auto=compress&cs=tinysrgb&w=800 800w, https://images.pexels.com/photos/5259822/pexels-photo-5259822.jpeg?auto=compress&cs=tinysrgb&w=1400 1400w, https://images.pexels.com/photos/5259822/pexels-photo-5259822.jpeg?auto=compress&cs=tinysrgb&w=2000 2000w"
+             sizes="100vw" alt="" loading="lazy">
+        </div>
+        <div class="container cta-band__inner">
+          <div>
+            <p class="eyebrow eyebrow--light" data-reveal><span class="eyebrow__dot"></span>Devis gratuit</p>
+            <h2 class="section-title section-title--light" data-reveal>Un projet, une fuite&nbsp;?<br>Parlons de votre toiture.</h2>
+            <p data-reveal>Visite et devis gratuits, sans engagement. Réponse sous 24&nbsp;h ouvrées.</p>
+          </div>
+          <div class="cta-band__actions" data-reveal>
+            <a href="contact.html#devis" class="btn btn--primary btn--lg">Demander un devis
+              <svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a href="tel:[TÉLÉPHONE]" class="btn btn--glass btn--lg">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+              [TÉLÉPHONE]</a>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- /.sheet -->
+  </main>
+
+  <!-- ===================================================
+       PIED DE PAGE
+       =================================================== -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <a href="index.html" class="logo logo--light">
+          <svg class="logo__mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M4 22 20 8l16 14" /><path d="M10 18v14h20V18" /><path d="M28 12V7h4v8.5" /></svg>
+          <span class="logo__text">[NOM]<small>Couverture · Zinguerie</small></span>
+        </a>
+        <p>Artisan couvreur à [VILLE]. Couverture, réparation, isolation et zinguerie pour les particuliers du [DÉPARTEMENT].</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="a-propos.html">À propos</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services.html#couverture">Couverture</a></li>
+          <li><a href="services.html#reparation">Réparation &amp; urgences</a></li>
+          <li><a href="services.html#isolation">Isolation</a></li>
+          <li><a href="services.html#zinguerie">Zinguerie</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:[TÉLÉPHONE]">[TÉLÉPHONE]</a></li>
+          <li><a href="mailto:[EMAIL]">[EMAIL]</a></li>
+          <li>[ADRESSE]</li>
+          <li>Lun – Sam · 8h – 19h</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <p>© <span id="year">2026</span> [NOM] · SIRET [XXX XXX XXX XXXXX]</p>
+      <p><a href="#">Mentions légales</a> · <a href="#">Confidentialité</a></p>
+    </div>
+  </footer>
+
+  <!-- Barre d'action mobile (toujours visible sur téléphone) -->
+  <div class="mobile-bar">
+    <a href="tel:[TÉLÉPHONE]" class="mobile-bar__call">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
+      Appeler
+    </a>
+    <a href="contact.html#devis" class="btn btn--primary">Demander un devis</a>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
