@@ -364,23 +364,6 @@ img.is-broken { opacity: 0 !important; }
 .contact__bg img { width: 100%; height: 120%; object-fit: cover; margin-top: -10%; filter: grayscale(.3); }
 .contact::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(100deg, var(--navy) 30%, rgba(31, 42, 68, .7)); }
 
-.quote-form { background: var(--cream); color: var(--text); border-radius: var(--radius-xl); padding: clamp(28px, 4vw, 44px); box-shadow: var(--shadow-lg); }
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
-.field span { font-size: 13px; font-weight: 600; color: var(--navy); }
-.field small { font-weight: 400; color: var(--muted); }
-.field input, .field select, .field textarea {
-  width: 100%; padding: 13px 14px; border-radius: var(--radius);
-  border: 1.5px solid rgba(31, 42, 68, .16); background: var(--white); color: var(--text);
-  transition: border-color .3s var(--ease), box-shadow .3s var(--ease);
-}
-.field textarea { resize: vertical; min-height: 96px; }
-.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--terracotta); box-shadow: 0 0 0 4px rgba(200, 85, 61, .14); }
-.field.is-invalid input { border-color: var(--terracotta); background: #FFF6F3; }
-.quote-form .btn { margin-top: 8px; }
-.quote-form__legal { margin: 14px 0 0; font-size: 13px; color: var(--muted); text-align: center; }
-.quote-form__success { margin: 16px 0 0; padding: 14px 16px; border-radius: var(--radius); background: #E7F2EA; color: #24603A; font-weight: 500; text-align: center; }
-
 /* ---------- Footer ---------- */
 .footer { background: var(--navy-900); color: rgba(255, 255, 255, .65); padding-top: 88px; font-size: 15px; position: relative; z-index: 2; }
 .footer__grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.2fr; gap: 48px; padding-bottom: 64px; }
@@ -471,14 +454,23 @@ img.is-broken { opacity: 0 !important; }
 
 
 
-/* Contact */
+/* Contact : un seul bloc « Demande de devis » (titre + conseils à gauche, coordonnées à droite) */
 .contact-page { scroll-margin-top: 90px; }
-.contact-page__grid > * { min-width: 0; }
-.contact-page__grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(32px, 5vw, 64px); align-items: start; }
-.contact-cards { display: grid; gap: 16px; }
+.contact-box {
+  display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 64px); align-items: start;
+  background: var(--white); border-radius: var(--radius-xl); box-shadow: var(--shadow-md);
+  padding: clamp(28px, 4vw, 56px);
+}
+.contact-box > * { min-width: 0; }
+.contact-box h2 { font-size: clamp(24px, 2.4vw, 30px); margin-bottom: 8px; }
+.contact-box__intro { color: var(--muted); margin-bottom: 28px; }
+.contact-box__label { font-size: 13px; font-weight: 600; color: var(--navy); margin-bottom: 14px; }
+.contact-box__list { margin: 0; }
+.contact-box__note { margin: 4px 0 0; font-size: 13px; color: var(--muted); }
+.contact-cards { display: grid; gap: 14px; }
 .contact-card {
   display: flex; align-items: flex-start; gap: 18px;
-  padding: 24px; border-radius: var(--radius-lg); background: var(--white); box-shadow: var(--shadow-sm);
+  padding: 22px 24px; border-radius: var(--radius-lg); background: var(--cream);
   transition: transform .4s var(--ease), box-shadow .4s var(--ease);
 }
 a.contact-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
@@ -494,23 +486,6 @@ a.contact-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md)
 .contact-card--accent em { color: #F0B7A8; }
 .contact-card--accent .contact-card__icon { background: var(--terracotta); }
 .contact-card--accent .contact-card__icon svg { stroke: var(--white); }
-
-.quote-form--light { background: var(--white); box-shadow: var(--shadow-md); }
-.quote-form h2 { font-size: clamp(24px, 2.4vw, 30px); margin-bottom: 8px; }
-.quote-form__intro { color: var(--muted); margin-bottom: 28px; }
-.field--choices { border: 0; padding: 0; margin: 0 0 16px; display: flex; flex-direction: row; flex-wrap: wrap; gap: 8px; }
-.field--choices legend { font-size: 13px; font-weight: 600; color: var(--navy); margin-bottom: 8px; padding: 0; }
-.field--choices label { position: relative; }
-.field--choices input { position: absolute; opacity: 0; pointer-events: none; }
-.field--choices label span {
-  display: inline-block; padding: 9px 16px; border-radius: 999px; cursor: pointer;
-  border: 1.5px solid rgba(31, 42, 68, .16); background: var(--white);
-  font-size: 14px; font-weight: 500; color: var(--navy);
-  transition: all .3s var(--ease);
-}
-.field--choices label:hover span { border-color: var(--navy); }
-.field--choices input:checked + span { background: var(--navy); border-color: var(--navy); color: var(--white); }
-.field--choices input:focus-visible + span { outline: 2px solid var(--terracotta); outline-offset: 2px; }
 
 /* ---------- Barre mobile ---------- */
 .mobile-bar { display: none; }
@@ -575,7 +550,7 @@ a.contact-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md)
   .zone__map { max-width: 520px; width: 100%; margin-inline: auto; }
   .process__list { grid-template-columns: repeat(2, 1fr); row-gap: 48px; }
   .process__line { display: none; }
-  .service-detail, .faq__grid, .contact-page__grid { grid-template-columns: 1fr; }
+  .service-detail, .faq__grid, .contact-box { grid-template-columns: 1fr; }
   .service-detail--reverse .service-detail__img { order: 0; }
   .service-detail__img, .services__grid { max-width: 640px; width: 100%; margin-inline: auto; }
   .services__grid { grid-template-columns: 1fr; }
@@ -602,7 +577,6 @@ a.contact-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md)
 
   .process__list { grid-template-columns: 1fr; }
 
-  .field-row { grid-template-columns: 1fr; gap: 0; }
   .hero--page { min-height: 0; }
   .hero--page .hero__content { padding-top: calc(var(--topbar-h) + var(--nav-h) + 40px); padding-bottom: 80px; }
   .hero--page .hero__title { font-size: clamp(2.1rem, 9.5vw, 2.8rem); }
@@ -646,7 +620,8 @@ a.contact-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md)
   .btn--lg { padding: 16px 20px; }
   .mobile-bar .btn { padding: 12px 10px; font-size: 14px; }
   .mobile-bar__call { padding: 0 12px; font-size: 14px; }
-  .quote-form { padding: 24px 18px; }
+  .contact-box { padding: 24px 18px; }
+  .contact-card { padding: 18px; gap: 14px; }
 }
 
 /* Menu mobile en paysage (écrans peu hauts) */

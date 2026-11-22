@@ -32,7 +32,7 @@ There is no test suite. Check layout changes in headless Chromium (Playwright is
 
 **Pages.** There are 4 pages: `index.html`, `a-propos.html`, `services.html`, `contact.html`. They all share one `style.css` and one `script.js`. The header, the mobile menu, the footer and the `.mobile-bar` (sticky Call / Quote bar shown below 768 px) are **duplicated verbatim in each HTML file**. A change to any of them must be made in all 4 files.
 
-**Services structure (owner's request: keep it simple for customers).** The client's trades are grouped into **three families**, used everywhere (home cards, Services page details + quick-access chips, footer, form choices):
+**Services structure (owner's request: keep it simple for customers).** The client's trades are grouped into **three families**, used everywhere (home cards, Services page details + quick-access chips, footer, the "what to tell us" list on Contact):
 1. **Toiture** (`#toiture`): couverture, charpente, zinguerie.
 2. **Maçonnerie & façades** (`#maconnerie`): maçonnerie, enduits, peinture extérieure.
 3. **Rénovation intérieure** (`#interieur`): placo, peinture intérieure, carrelage, salles de bains.
@@ -63,11 +63,11 @@ Also avoid repeating the same fact within a single page (e.g. "un seul interlocu
   - `data-reveal`: fade/slide in on scroll, via `ScrollTrigger.batch`. After the animation, the element gets `.is-in` and its inline styles are cleared so the CSS hover transitions work again.
   - `data-reveal-img`: clip-path "curtain" reveal.
   - `data-parallax`: scrubbed image parallax. The image is 120% tall, with `margin-top: -10%`.
-- **Non-animation behaviour** sits above the GSAP early `return` in `script.js`, so it runs even without GSAP: footer year, broken-image fallback, header scroll state, hero sticky offset, mobile menu, form validation.
+- **Non-animation behaviour** sits above the GSAP early `return` in `script.js`, so it runs even without GSAP: footer year, broken-image fallback, header scroll state, hero sticky offset, mobile menu.
 
 **Mobile menu.** Below 960 px, `#nav-links` becomes a full-screen overlay. It is hidden with `clip-path` plus `visibility`, so links aren't focusable while it is closed. It is scrollable for landscape phones. The JS closes it when the window is resized past 960 px; keep that value in sync with the CSS breakpoint.
 
-**Quote form (`contact.html`).** It is **not wired to any backend**. `script.js` checks the `[required]` fields, then resets the form and shows `.quote-form__success`. To make it work, set the form's `action` to a real endpoint (Formspree, PHP…).
+**Quote request (`contact.html#devis`).** There is **no form** (owner's request: the old one wasn't wired to any backend). `#devis` is a single `.contact-box` card: the title, a short checklist of what to tell us, and the phone numbers and town (`.contact-card`) inside the same card. Every "Demander un devis" button on the site links to `contact.html#devis`. If a real form is wanted later (once hosting with PHP is in place), it goes back inside this card.
 
 **CSS conventions.**
 - BEM-like class names (`block__element--modifier`).
