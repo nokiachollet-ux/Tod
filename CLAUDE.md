@@ -79,6 +79,10 @@ Also avoid repeating the same fact within a single page (e.g. "un seul interlocu
 **CSS conventions.**
 - BEM-like class names (`block__element--modifier`).
 - Design tokens are defined in `:root`: navy / cream / terracotta colours, `--gutter`, `--section`, `--topbar-h`, `--nav-h`.
+- **Contrast:** base `--terracotta` (#C8553D) is only 4.35:1 on white, so it is kept for decoration (dots, lines, icons, borders) and the large hero `em`. Text and button backgrounds on light surfaces use `--terracotta-600` (5.6:1 with white; hover `--terracotta-700`). On dark surfaces use `#F0B7A8` (`.eyebrow--light`).
+- **Tap targets:** small standalone links (`.link-arrow`, breadcrumb, footer links) get `padding-block` (with an equal negative `margin-block` where the layout must not move) so the hit area is at least 32 px tall at 360 px wide.
+- **Favicon:** `favicon.svg` (navy square + logo house), `favicon.ico` (16/32/48) and `apple-touch-icon.png` (180, square corners) at the root, linked with relative paths in every `<head>`. Regenerate the PNG/ICO from the SVG if the logo changes.
+- **Alt texts** describe what the stock photo shows (trade-related words welcome) and differ between pages; never claim a photo shows the company's own work. Decorative/background images use `alt=""`.
 - Fluid sizes use `clamp()`. Hero titles are also capped by viewport height (`min(…vw, …svh)`).
 - Responsive overrides are grouped at the end of `style.css`, desktop-first, at these breakpoints: 1180 (compact header), 1080, 960 (burger menu; most grids collapse), 768 (phone layout, `.mobile-bar`), 600, 400 (buttons may wrap). There is also a landscape-menu query: `max-width: 960px` and `max-height: 520px`.
 - Large images use `srcset` with 800 / 1400 / 2200 widths through the CDN's `w=` parameter.
