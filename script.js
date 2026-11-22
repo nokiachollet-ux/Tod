@@ -55,31 +55,6 @@
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
   window.addEventListener('resize', () => { if (window.innerWidth > 960) setMenu(false); });
 
-  /* ---------- Formulaire de devis ----------
-     À relier à un vrai service d'envoi (Formspree, PHP…).
-     Ici : validation simple + message de confirmation. */
-  const form = document.querySelector('.quote-form');
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      let ok = true;
-      form.querySelectorAll('[required]').forEach((field) => {
-        const invalid = !field.value.trim();
-        field.closest('.field').classList.toggle('is-invalid', invalid);
-        if (invalid && ok) { field.focus(); ok = false; }
-      });
-      if (!ok) return;
-      form.reset();
-      const msg = form.querySelector('.quote-form__success');
-      msg.hidden = false;
-      if (window.gsap) gsap.from(msg, { y: 10, opacity: 0, duration: .6, ease: 'power3.out' });
-    });
-    form.addEventListener('input', (e) => {
-      const f = e.target.closest('.field');
-      if (f) f.classList.remove('is-invalid');
-    });
-  }
-
   /* =========================================================
      ANIMATIONS
      ========================================================= */
