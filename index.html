@@ -3,14 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TF Renov64 — Rénovation &amp; construction à Orthez | Toiture, maçonnerie, intérieur</title>
-  <meta name="description" content="TF Renov64, rénovation et construction à Orthez (64) : couverture, charpente, zinguerie, maçonnerie, enduits, peinture, placo, carrelage et salles de bains. Pyrénées-Atlantiques, Landes, Hautes-Pyrénées. Devis gratuit.">
+  <title>Entreprise de rénovation à Orthez (64) | TF Renov64</title>
+  <meta name="description" content="TF Renov64 à Orthez : toiture, maçonnerie, façades et rénovation intérieure dans le 64, le 40 et le 65. Visite et devis gratuits au 06 56 79 34 65.">
   <meta name="theme-color" content="#1F2A44">
 
-  <!-- Active les états initiaux des animations uniquement si JS est disponible -->
+  <!-- Active les états initiaux des animations uniquement si JS est disponible.
+       Pas d'animation sur un écran très haut (> 1600 px) : c'est le cas des robots d'indexation,
+       qui ne font pas défiler la page et verraient sinon des blocs encore masqués.
+       Copie de prévisualisation (github.io) : on demande aux moteurs de ne pas l'indexer,
+       pour qu'elle ne fasse pas doublon avec le futur domaine. Rien à retirer à la migration. -->
   <script>
     document.documentElement.classList.add('js');
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('anim');
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && window.innerHeight <= 1600) document.documentElement.classList.add('anim');
+    if (/\.github\.io$/.test(location.hostname)) {
+      var robots = document.createElement('meta');
+      robots.name = 'robots'; robots.content = 'noindex';
+      document.head.appendChild(robots);
+    }
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -89,10 +98,8 @@
       <div class="hero__overlay" aria-hidden="true"></div>
 
       <div class="container hero__content">
-        <p class="eyebrow eyebrow--light hero__eyebrow">
-          <span class="eyebrow__dot"></span>Rénovation &amp; construction
-        </p>
         <h1 class="hero__title">
+          <span class="eyebrow eyebrow--light hero__kicker"><span class="eyebrow__dot"></span>Rénovation &amp; construction à Orthez</span>
           <span class="line"><span>Votre maison,</span></span>
           <span class="line"><span>du toit</span></span>
           <span class="line"><span><em>aux finitions.</em></span></span>
@@ -145,7 +152,7 @@
                 <h3>Toiture</h3>
                 <p>Un toit sain et étanche, de la charpente jusqu'aux gouttières.</p>
                 <ul class="service-card__tags" aria-label="Métiers"><li>Couverture</li><li>Charpente</li><li>Zinguerie</li></ul>
-                <a href="services.html#toiture" class="link-arrow">Voir le détail <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                <a href="services.html#toiture" class="link-arrow">Nos travaux de toiture <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
               </div>
             </article>
             <article class="service-card" data-reveal>
@@ -157,7 +164,7 @@
                 <h3>Maçonnerie &amp; façades</h3>
                 <p>Des murs solides et une façade remise à neuf.</p>
                 <ul class="service-card__tags" aria-label="Métiers"><li>Maçonnerie</li><li>Enduits</li><li>Peinture extérieure</li></ul>
-                <a href="services.html#maconnerie" class="link-arrow">Voir le détail <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                <a href="services.html#maconnerie" class="link-arrow">Nos travaux de maçonnerie <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
               </div>
             </article>
             <article class="service-card" data-reveal>
@@ -169,7 +176,7 @@
                 <h3>Rénovation intérieure</h3>
                 <p>Des pièces refaites à neuf, jusqu'à la salle de bains complète.</p>
                 <ul class="service-card__tags" aria-label="Métiers"><li>Placo</li><li>Peinture</li><li>Carrelage</li><li>Salle de bains</li></ul>
-                <a href="services.html#interieur" class="link-arrow">Voir le détail <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                <a href="services.html#interieur" class="link-arrow">Nos travaux d'intérieur <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
               </div>
             </article>
           </div>

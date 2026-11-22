@@ -197,7 +197,8 @@ img.is-broken { opacity: 0 !important; }
    ========================================================= */
 .hero {
   position: sticky; top: 0; z-index: 0;
-  min-height: 100vh; min-height: 100svh;
+  /* Plafond à 1600 px : sur un écran très haut (robot d'indexation), le hero ne repousse pas tout le contenu hors de vue */
+  min-height: 100vh; min-height: min(100svh, 1600px);
   display: flex; align-items: flex-end;
   color: var(--white); overflow: hidden;
 }
@@ -211,6 +212,8 @@ img.is-broken { opacity: 0 !important; }
 }
 .hero__content { position: relative; padding-top: calc(var(--topbar-h) + var(--nav-h) + 40px); padding-bottom: clamp(88px, 12vh, 140px); }
 .hero__eyebrow { margin-bottom: 24px; }
+/* Ligne de mots-clés (métier + ville) au début du h1, dans le style des surtitres */
+.hero__kicker { display: flex; width: fit-content; line-height: 1.4; margin-bottom: 20px; }
 .hero__title {
   color: var(--white);
   font-size: clamp(2.75rem, min(7.4vw, 10.5svh), 6.25rem);
@@ -343,6 +346,7 @@ img.is-broken { opacity: 0 !important; }
 .zone__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(48px, 7vw, 100px); align-items: center; }
 .zone__text p { font-size: 17px; margin-top: 24px; }
 .zone__note { font-size: 15px !important; color: var(--muted); }
+.about__text p a, .contact-box__list a, .faq details a,
 .zone__note a { color: var(--terracotta); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
 
 .zone__map { position: relative; aspect-ratio: 1; border-radius: var(--radius-xl); background: var(--navy); overflow: hidden; box-shadow: var(--shadow-lg); }
@@ -504,7 +508,8 @@ a.contact-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md)
 .js.anim [data-reveal]:not(.is-in) { opacity: 0; transform: translateY(36px); }
 .js.anim [data-reveal-img]:not(.is-in) { clip-path: inset(100% 0 0 0); }
 .js.anim .hero__title .line > span { transform: translateY(110%); }
-.js.anim .hero__eyebrow, .js.anim .hero__lead, .js.anim .hero__actions, .js.anim .hero__scroll { opacity: 0; }
+/* Le texte du hero (titre de mots-clés, accroche, boutons) reste visible dès le premier affichage : seul un léger glissement l'anime */
+.js.anim .hero__eyebrow, .js.anim .hero__scroll { opacity: 0; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -571,7 +576,7 @@ a.contact-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md)
   .nav__phone-icon { width: 42px; height: 42px; }
   .topbar__zone { font-size: 12px; }
 
-  .hero { height: auto; min-height: 100vh; min-height: 100svh; }
+  .hero { height: auto; min-height: 100vh; min-height: min(100svh, 1600px); }
   .hero__content { padding-top: calc(var(--topbar-h) + var(--nav-h) + 36px); padding-bottom: 120px; }
   .hero__title { font-size: clamp(2.25rem, 10.5vw, 3rem); }
   .hero__lead { font-size: 16px; }

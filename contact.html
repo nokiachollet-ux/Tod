@@ -3,14 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Contact &amp; devis gratuit — TF Renov64, Orthez</title>
-  <meta name="description" content="Contactez TF Renov64 à Orthez : 06 56 79 34 65 ou 09 51 05 57 38. Visite et devis gratuits pour vos travaux de toiture, maçonnerie et rénovation intérieure dans le 64, le 40 et le 65.">
+  <title>Contact et devis gratuit à Orthez (64) | TF Renov64</title>
+  <meta name="description" content="Appelez TF Renov64 au 06 56 79 34 65 : visite et devis gratuits pour vos travaux de toiture, maçonnerie et rénovation intérieure à Orthez (64, 40, 65).">
   <meta name="theme-color" content="#1F2A44">
 
-  <!-- Active les états initiaux des animations uniquement si JS est disponible -->
+  <!-- Active les états initiaux des animations uniquement si JS est disponible.
+       Pas d'animation sur un écran très haut (> 1600 px) : c'est le cas des robots d'indexation,
+       qui ne font pas défiler la page et verraient sinon des blocs encore masqués.
+       Copie de prévisualisation (github.io) : on demande aux moteurs de ne pas l'indexer,
+       pour qu'elle ne fasse pas doublon avec le futur domaine. Rien à retirer à la migration. -->
   <script>
     document.documentElement.classList.add('js');
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('anim');
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && window.innerHeight <= 1600) document.documentElement.classList.add('anim');
+    if (/\.github\.io$/.test(location.hostname)) {
+      var robots = document.createElement('meta');
+      robots.name = 'robots'; robots.content = 'noindex';
+      document.head.appendChild(robots);
+    }
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -91,6 +100,7 @@
           <a href="index.html">Accueil</a><span aria-hidden="true">/</span><span aria-current="page">Contact</span>
         </nav>
         <h1 class="hero__title">
+          <span class="eyebrow eyebrow--light hero__kicker"><span class="eyebrow__dot"></span>Devis de travaux à Orthez</span>
           <span class="line"><span>Parlons de</span></span>
           <span class="line"><span><em>votre projet.</em></span></span>
         </h1>
@@ -112,7 +122,7 @@
               <p class="contact-box__intro">Appelez-nous&nbsp;: après un premier échange, nous venons voir le chantier pour établir un devis précis.</p>
               <p class="contact-box__label">Pour aller plus vite, précisez-nous&nbsp;:</p>
               <ul class="checklist contact-box__list">
-                <li>Le type de travaux (toiture, maçonnerie, intérieur)</li>
+                <li>Le type de travaux (<a href="services.html#toiture">toiture</a>, <a href="services.html#maconnerie">maçonnerie</a>, <a href="services.html#interieur">intérieur</a>)</li>
                 <li>Votre commune</li>
                 <li>Le délai souhaité</li>
               </ul>

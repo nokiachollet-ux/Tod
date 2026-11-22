@@ -60,8 +60,9 @@
      ========================================================= */
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Sans GSAP (hors ligne) ou si l'utilisateur limite les animations : tout reste visible.
-  if (!window.gsap || !window.ScrollTrigger || reduceMotion) {
+  // Sans GSAP (hors ligne), si l'utilisateur limite les animations, ou si le script du <head>
+  // n'a pas activé .anim (écran très haut, robot d'indexation) : tout reste visible, rien n'est animé.
+  if (!window.gsap || !window.ScrollTrigger || reduceMotion || !root.classList.contains('anim')) {
     root.classList.remove('anim');
     return;
   }
@@ -79,9 +80,9 @@
     step('.hero__media img', { scale: 1.22, duration: 2.6, ease: 'power2.out' }, 0, 'from');
     step('.hero__overlay', { opacity: 0, duration: 1.6, ease: 'power1.out' }, 0, 'from');
     step('.topbar, .nav', { yPercent: -110, opacity: 0, duration: 1, stagger: .08, clearProps: 'transform,opacity' }, .3, 'from');
-    ['.hero__eyebrow', '.hero__lead', '.hero__actions'].forEach((sel, i) => {
-      const at = [.45, 1.15, 1.3][i];
-      step(sel, { opacity: 1, duration: .9 }, at);
+    step('.hero__eyebrow', { opacity: 1, duration: .9 }, .45);
+    // Accroche et boutons : déjà visibles (bon pour le LCP), ils glissent juste en place.
+    [['.hero__eyebrow, .hero__kicker', .45], ['.hero__lead', .3], ['.hero__actions', .4]].forEach(([sel, at]) => {
       step(sel, { y: 20, duration: .9 }, at, 'from');
     });
     step('.hero__title .line > span', { y: 0, yPercent: 0, duration: 1.25, stagger: .13, ease: 'power4.out' }, .55);
@@ -163,4 +164,16 @@
 
   // Recalcule les positions une fois toutes les images chargées
   window.addEventListener('load', () => ScrollTrigger.refresh());
+
+  // Fenêtre agrandie au-delà de 1600 px de haut (même seuil que le script du <head>) :
+  // c'est ce que font les robots d'indexation, qui ne défilent pas. On arrête alors
+  // toutes les animations et on affiche le contenu d'un coup.
+  const showAll = () => {
+    if (window.innerHeight <= 1600 || !root.classList.contains('anim')) return;
+    root.classList.remove('anim');
+    ScrollTrigger.killAll();
+    gsap.globalTimeline.clear();
+    gsap.set('[data-reveal], [data-reveal-img], [data-reveal-img] img, [data-parallax] img, .hero *, .site-header *, .guarantees__panel, .process__line span', { clearProps: 'all' });
+  };
+  window.addEventListener('resize', showAll);
 })();

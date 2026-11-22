@@ -3,14 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>À propos — TF Renov64, rénovation et construction à Orthez</title>
-  <meta name="description" content="TF Renov64, entreprise de rénovation et de construction basée à Orthez : toiture, maçonnerie, façades et rénovation intérieure pour les particuliers du 64, du 40 et du 65.">
+  <title>Artisan du bâtiment à Orthez, en Béarn | TF Renov64</title>
+  <meta name="description" content="TF Renov64, entreprise de rénovation et de construction basée à Orthez : un seul contact pour l'extérieur et l'intérieur de votre maison, dans le 64, 40 et 65.">
   <meta name="theme-color" content="#1F2A44">
 
-  <!-- Active les états initiaux des animations uniquement si JS est disponible -->
+  <!-- Active les états initiaux des animations uniquement si JS est disponible.
+       Pas d'animation sur un écran très haut (> 1600 px) : c'est le cas des robots d'indexation,
+       qui ne font pas défiler la page et verraient sinon des blocs encore masqués.
+       Copie de prévisualisation (github.io) : on demande aux moteurs de ne pas l'indexer,
+       pour qu'elle ne fasse pas doublon avec le futur domaine. Rien à retirer à la migration. -->
   <script>
     document.documentElement.classList.add('js');
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('anim');
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && window.innerHeight <= 1600) document.documentElement.classList.add('anim');
+    if (/\.github\.io$/.test(location.hostname)) {
+      var robots = document.createElement('meta');
+      robots.name = 'robots'; robots.content = 'noindex';
+      document.head.appendChild(robots);
+    }
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -91,6 +100,7 @@
           <a href="index.html">Accueil</a><span aria-hidden="true">/</span><span aria-current="page">À propos</span>
         </nav>
         <h1 class="hero__title">
+          <span class="eyebrow eyebrow--light hero__kicker"><span class="eyebrow__dot"></span>Artisan du bâtiment à Orthez</span>
           <span class="line"><span>Rénover et construire,</span></span>
           <span class="line"><span><em>avec soin.</em></span></span>
         </h1>
@@ -110,8 +120,9 @@
             <h2 class="section-title" data-reveal>Une entreprise locale, plusieurs savoir-faire.</h2>
             <p data-reveal>
               TF Renov64 est une entreprise de rénovation et de construction basée à Orthez.
-              Elle réunit les métiers de l'extérieur (couverture, charpente, zinguerie, maçonnerie, enduits)
-              et ceux de l'intérieur&nbsp;: plâtrerie, peinture, carrelage et salles de bains.
+              Elle réunit les métiers de l'extérieur (<a href="services.html#toiture">couverture, charpente, zinguerie</a>,
+              <a href="services.html#maconnerie">maçonnerie, enduits</a>)
+              et ceux de l'intérieur&nbsp;: <a href="services.html#interieur">plâtrerie, peinture, carrelage et salles de bains</a>.
             </p>
             <p data-reveal>
               Pour vous, c'est plus simple&nbsp;: un seul contact pour l'ensemble du chantier,
