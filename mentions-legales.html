@@ -13,17 +13,10 @@
 
   <!-- Active les états initiaux des animations uniquement si JS est disponible.
        Pas d'animation sur un écran très haut (> 1600 px) : c'est le cas des robots d'indexation,
-       qui ne font pas défiler la page et verraient sinon des blocs encore masqués.
-       Copie de prévisualisation (github.io) : on demande aux moteurs de ne pas l'indexer,
-       pour qu'elle ne fasse pas doublon avec le futur domaine. Rien à retirer à la migration. -->
+       qui ne font pas défiler la page et verraient sinon des blocs encore masqués. -->
   <script>
     document.documentElement.classList.add('js');
     if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && window.innerHeight <= 1600) document.documentElement.classList.add('anim');
-    if (/\.github\.io$/.test(location.hostname)) {
-      var robots = document.createElement('meta');
-      robots.name = 'robots'; robots.content = 'noindex';
-      document.head.appendChild(robots);
-    }
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">

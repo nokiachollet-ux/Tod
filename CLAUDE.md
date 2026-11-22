@@ -69,7 +69,7 @@ Also avoid repeating the same fact within a single page (e.g. "un seul interlocu
 - Each `<h1>` starts with a `.hero__kicker` span (eyebrow style) carrying the page's keyword + town (e.g. "Couvreur, maçon et plaquiste à Orthez"), followed by the visual slogan lines. Keep one distinct target query per page; titles ≤ 60 characters, descriptions ≤ 160.
 - The trade nouns people search for (couvreur, charpentier, zingueur, maçon, ravalement, plaquiste, peintre, carreleur) appear in the Services intro paragraphs; keep them when rewriting copy.
 - Internal links use descriptive anchors ("Nos travaux de toiture", not "Voir le détail"); trade mentions in body text link to the matching `services.html#…` anchor.
-- **The github.io copy is `noindex`**: the inline `<head>` script adds `<meta name="robots" content="noindex">` only when the hostname ends in `.github.io`, so nothing needs removing when the site moves to its own domain. `mentions-legales.html` also has a static `noindex`.
+- **The site is indexable** (the former github.io-only `noindex` script was removed so PageSpeed Insights can audit SEO). Only `mentions-legales.html` keeps a static `noindex`. If a duplicate go-live domain is added later, set a canonical to the final domain.
 - Not done yet (need the final domain or owner input): canonical, sitemap.xml, robots.txt, 404 page, Open Graph, JSON-LD.
 
 **Mobile menu.** Below 960 px, `#nav-links` becomes a full-screen overlay. It is hidden with `clip-path` plus `visibility`, so links aren't focusable while it is closed. It is scrollable for landscape phones. The JS closes it when the window is resized past 960 px; keep that value in sync with the CSS breakpoint.
