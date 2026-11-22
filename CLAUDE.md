@@ -4,9 +4,15 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-A static, French-language showcase website for a roofing craftsman ("couvreur"). Plain HTML/CSS/JS: no build step, no package manager, no tests. It is deployed with **GitHub Pages from the `main` branch root**: https://nokiachollet-ux.github.io/Tod/ (Pages caches pages for about 10 min).
+A static, French-language showcase website for **TF Renov64**, a renovation and construction company based in Orthez (64300). Plain HTML/CSS/JS: no build step, no package manager, no tests. It is deployed with **GitHub Pages from the `main` branch root**: https://nokiachollet-ux.github.io/Tod/ (Pages caches pages for about 10 min).
 
-All business details are still **placeholders in square brackets**: `[NOM]`, `[VILLE]`, `[DÉPARTEMENT]`, `[TÉLÉPHONE]`, `[EMAIL]`, `[ADRESSE]`, `[ANNÉE]`, `[Commune N]`, `[XX]`, etc. Keep them as placeholders unless the owner provides real values. Figures such as "25 ans", "1 200+" and "4,9/5" are examples, not real data. All user-facing copy is in French.
+Business details supplied by the owner (use exactly these):
+- Mobile 06 56 79 34 65 (`tel:+33656793465`), used for every "call" button. Landline 09 51 05 57 38 (`tel:+33951055738`), shown in the topbar, the footer and the contact page.
+- SIRET 791 122 328 00028. Based in 64300 Orthez (no street address given).
+- Service area: Pyrénées-Atlantiques (64), Landes (40), Hautes-Pyrénées (65).
+- Not provided yet, so intentionally absent (don't invent them): email, opening hours, founding year, team size, figures, customer reviews, labels/certifications, real project photos. All photos are Unsplash/Pexels stock images.
+
+All user-facing copy is in French.
 
 ## Running locally
 
@@ -26,13 +32,20 @@ There is no test suite. Check layout changes in headless Chromium (Playwright is
 
 **Pages.** There are 4 pages: `index.html`, `a-propos.html`, `services.html`, `contact.html`. They all share one `style.css` and one `script.js`. The header, the mobile menu, the footer and the `.mobile-bar` (sticky Call / Quote bar shown below 768 px) are **duplicated verbatim in each HTML file**. A change to any of them must be made in all 4 files.
 
+**Services structure (owner's request: keep it simple for customers).** The client's trades are grouped into **three families**, used everywhere (home cards, Services page details + quick-access chips, footer, form choices):
+1. **Toiture** (`#toiture`): couverture, charpente, zinguerie.
+2. **Maçonnerie & façades** (`#maconnerie`): maçonnerie, enduits, peinture extérieure.
+3. **Rénovation intérieure** (`#interieur`): placo, peinture intérieure, carrelage, salles de bains.
+
+Don't add a new family or a stand-alone trade without the owner's request; a new trade goes inside one of the three.
+
 **Content rule (owner's request).** Each content block lives on **one page only**, to avoid repetition:
-- Guarantees and key figures (`.stats`): home page only.
-- "Quatre étapes" (`.process`): Services only.
+- Guarantees (`.guarantees`): home page only.
+- "Quatre étapes" (`.process`) and the FAQ: Services only.
 - Service area (`.zone`): Contact only.
 - The closing `.cta-band` has page-specific wording, distinct from the Contact hero.
 
-Also avoid repeating the same fact (e.g. "48 h", "garantie 10 ans") within a single page. Removed at the owner's request: the reviews section ("avis clients"), the team section, and the list of towns shown as buttons.
+Also avoid repeating the same fact within a single page (e.g. "un seul interlocuteur" belongs to the home "about" block, not also to the hero or the guarantees). Removed at the owner's request or because they relied on invented data: customer reviews, the team section, the towns shown as buttons, the key-figures strip, the "réalisations" gallery (stock photos) and the about-page timeline.
 
 **Page layout pattern.** Every page has the same structure:
 1. `.site-header`: a fixed header made of `.topbar` and `.nav`. When the page is scrolled past 40 px, the JS adds `.is-scrolled`, which slides the topbar away and gives the nav a light background.
@@ -46,7 +59,7 @@ Also avoid repeating the same fact (e.g. "48 h", "garantie 10 ans") within a sin
 
 **Animations (`script.js` + CSS).** The animation system works in three layers:
 - **Gating.** An inline script in each `<head>` adds `.js`, and adds `.anim` unless reduced motion is requested. The hidden initial states (`.js.anim [data-reveal]`, `[data-reveal-img]`, the hero lines) are scoped to `.js.anim`. If GSAP fails to load or the user prefers reduced motion, `script.js` removes `.anim` and everything stays visible. Any new hidden-until-animated state must follow the same pattern.
-- **Data-attribute hooks**, set in the HTML and handled generically:
+- **Data-attribute hooks**, set in the HTML and handled generically (`data-count` and the timeline/process lines are unused on some pages; the JS skips what it doesn't find):
   - `data-reveal`: fade/slide in on scroll, via `ScrollTrigger.batch`. After the animation, the element gets `.is-in` and its inline styles are cleared so the CSS hover transitions work again.
   - `data-reveal-img`: clip-path "curtain" reveal.
   - `data-parallax`: scrubbed image parallax. The image is 120% tall, with `margin-top: -10%`.
