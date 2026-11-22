@@ -1,8 +1,3 @@
-/* =========================================================
-   [NOM] — Couvreur · Interactions & animations
-   GSAP + ScrollTrigger (chargés via CDN dans index.html)
-   ========================================================= */
-
 (function () {
   'use strict';
 
@@ -10,25 +5,19 @@
   const body = document.body;
   const header = document.querySelector('.site-header');
 
-  /* ---------- Année du footer ---------- */
   const year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
 
-  /* ---------- Photo indisponible : on laisse le fond bleu nuit ---------- */
   document.querySelectorAll('img').forEach((img) => {
     const fail = () => img.classList.add('is-broken');
     if (img.complete && img.naturalWidth === 0 && img.src) fail();
     img.addEventListener('error', fail);
   });
 
-  /* ---------- En-tête : état « scrollé » ---------- */
   const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 40);
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
 
-  /* ---------- Hero plus haut que l'écran (laptop peu haut, paysage) ----------
-     Le hero est "sticky" : s'il dépasse la hauteur de la fenêtre, on le laisse
-     défiler jusqu'à son bas avant qu'il ne se fige, sinon la fin serait masquée. */
   const hero = document.querySelector('.hero');
   if (hero) {
     const fitHero = () => {
@@ -39,7 +28,6 @@
     if ('ResizeObserver' in window) new ResizeObserver(fitHero).observe(hero);
   }
 
-  /* ---------- Menu mobile ---------- */
   const burger = document.querySelector('.burger');
   const links = document.getElementById('nav-links');
 
@@ -55,13 +43,8 @@
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') setMenu(false); });
   window.addEventListener('resize', () => { if (window.innerWidth > 960) setMenu(false); });
 
-  /* =========================================================
-     ANIMATIONS
-     ========================================================= */
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Sans GSAP (hors ligne), si l'utilisateur limite les animations, ou si le script du <head>
-  // n'a pas activé .anim (écran très haut, robot d'indexation) : tout reste visible, rien n'est animé.
   if (!window.gsap || !window.ScrollTrigger || reduceMotion || !root.classList.contains('anim')) {
     root.classList.remove('anim');
     return;
@@ -72,7 +55,6 @@
 
   const has = (sel) => document.querySelectorAll(sel).length > 0;
 
-  /* ---------- 1. Entrée du hero (accueil et pages intérieures) ---------- */
   if (has('.hero')) {
     const intro = gsap.timeline({ delay: .15 });
     const step = (sel, vars, pos, method = 'to') => { if (has(sel)) intro[method](sel, vars, pos); };
@@ -81,7 +63,6 @@
     step('.hero__overlay', { opacity: 0, duration: 1.6, ease: 'power1.out' }, 0, 'from');
     step('.topbar, .nav', { yPercent: -110, opacity: 0, duration: 1, stagger: .08, clearProps: 'transform,opacity' }, .3, 'from');
     step('.hero__eyebrow', { opacity: 1, duration: .9 }, .45);
-    // Accroche et boutons : déjà visibles (bon pour le LCP), ils glissent juste en place.
     [['.hero__eyebrow, .hero__kicker', .45], ['.hero__lead', .3], ['.hero__actions', .4]].forEach(([sel, at]) => {
       step(sel, { y: 20, duration: .9 }, at, 'from');
     });
@@ -89,7 +70,6 @@
     step('.hero__scroll', { opacity: 1, duration: 1 }, 1.8);
   }
 
-  /* ---------- 2. Le contenu glisse sur le hero ---------- */
   if (has('.hero') && has('.sheet')) {
     gsap.timeline({
       scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
@@ -98,15 +78,12 @@
       .to('.hero__content', { y: -90, opacity: 0, ease: 'none' }, 0);
   }
 
-  // Pendant une animation GSAP, on coupe les transitions CSS de l'élément
-  // (sinon les deux se superposent) puis on rend la main aux effets de survol.
   const freeze = (els) => els.forEach((el) => { el.style.transition = 'none'; });
   const release = (els) => els.forEach((el) => {
     el.classList.add('is-in');
     gsap.set(el, { clearProps: 'all' });
   });
 
-  /* ---------- 3. Apparition des textes et blocs ---------- */
   ScrollTrigger.batch('[data-reveal]', {
     start: 'top 88%',
     once: true,
@@ -119,7 +96,6 @@
     }
   });
 
-  /* ---------- 4. Révélation des images (rideau) ---------- */
   gsap.utils.toArray('[data-reveal-img]').forEach((el) => {
     const img = el.querySelector('img');
     const parallax = el.hasAttribute('data-parallax');
@@ -138,7 +114,6 @@
     }
   });
 
-  /* ---------- 5. Parallaxe légère ---------- */
   gsap.utils.toArray('[data-parallax]').forEach((el) => {
     const img = el.querySelector('img');
     if (!img) return;
@@ -148,7 +123,6 @@
     });
   });
 
-  /* ---------- 6. Transition vers la section sombre ---------- */
   if (has('.guarantees__panel')) gsap.fromTo('.guarantees__panel',
     { clipPath: 'inset(0% 3% 0% 3% round 28px)' },
     {
@@ -156,18 +130,13 @@
       scrollTrigger: { trigger: '.guarantees', start: 'top bottom', end: 'top 25%', scrub: true }
     });
 
-  /* ---------- 7. Ligne de progression des étapes (page Services) ---------- */
   if (has('.process__line span')) gsap.fromTo('.process__line span', { scaleX: 0 }, {
     scaleX: 1, ease: 'none',
     scrollTrigger: { trigger: '.process__list', start: 'top 75%', end: 'bottom 55%', scrub: true }
   });
 
-  // Recalcule les positions une fois toutes les images chargées
   window.addEventListener('load', () => ScrollTrigger.refresh());
 
-  // Fenêtre agrandie au-delà de 1600 px de haut (même seuil que le script du <head>) :
-  // c'est ce que font les robots d'indexation, qui ne défilent pas. On arrête alors
-  // toutes les animations et on affiche le contenu d'un coup.
   const showAll = () => {
     if (window.innerHeight <= 1600 || !root.classList.contains('anim')) return;
     root.classList.remove('anim');
