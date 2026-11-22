@@ -26,6 +26,19 @@
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
 
+  /* ---------- Hero plus haut que l'écran (laptop peu haut, paysage) ----------
+     Le hero est "sticky" : s'il dépasse la hauteur de la fenêtre, on le laisse
+     défiler jusqu'à son bas avant qu'il ne se fige, sinon la fin serait masquée. */
+  const hero = document.querySelector('.hero');
+  if (hero) {
+    const fitHero = () => {
+      hero.style.top = Math.min(0, window.innerHeight - hero.offsetHeight) + 'px';
+    };
+    fitHero();
+    window.addEventListener('resize', fitHero);
+    if ('ResizeObserver' in window) new ResizeObserver(fitHero).observe(hero);
+  }
+
   /* ---------- Menu mobile ---------- */
   const burger = document.querySelector('.burger');
   const links = document.getElementById('nav-links');
