@@ -18,60 +18,43 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-  <script>
-    document.documentElement.classList.add('js');
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && window.innerHeight <= 1600) document.documentElement.classList.add('anim');
-  </script>
+  <script>document.documentElement.classList.add('js');</script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;500;600&family=Bevan&family=Six+Caps&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="page-contact">
 
+  <a class="skip" href="#main">Aller au contenu</a>
+
   <header class="site-header" id="top">
     <div class="topbar">
       <div class="container topbar__inner">
-        <p class="topbar__zone">
-          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg>
-          <span>Pyrénées-Atlantiques · Landes · Hautes-Pyrénées</span>
-        </p>
-        <div class="topbar__links">
-          <a href="tel:+33951055738">Fixe : 09 51 05 57 38</a>
-        </div>
+        <p class="topbar__zone">Pyrénées-Atlantiques, Landes et Hautes-Pyrénées</p>
+        <a href="tel:+33951055738">Fixe : 09 51 05 57 38</a>
       </div>
     </div>
 
     <nav class="nav" aria-label="Navigation principale">
       <div class="container nav__inner">
-        <a href="index.html" class="logo" aria-label="TF Renov64, retour à l'accueil">
-          <svg class="logo__mark" viewBox="0 0 40 40" aria-hidden="true">
-            <path d="M4 22 20 8l16 14" />
-            <path d="M10 18v14h20V18" />
-            <path d="M28 12V7h4v8.5" />
-          </svg>
-          <span class="logo__text">TF Renov64<small>Rénovation · Construction</small></span>
+        <a href="index.html" class="logo" aria-label="TF Renov64, retour à l’accueil">
+          <svg class="logo__mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M4 22 20 8l16 14" /><path d="M10 18v14h20V18" /><path d="M28 12V7h4v8.5" /></svg>
+          <span class="logo__text">TF Renov64<small>Rénovation et construction</small></span>
         </a>
 
         <ul class="nav__links" id="nav-links">
           <li><a href="index.html">Accueil</a></li>
           <li><a href="a-propos.html">À propos</a></li>
           <li><a href="services.html">Services</a></li>
-          <li><a href="contact.html" class="is-active" aria-current="page">Contact</a></li>
-          <li class="nav__links-cta"><a href="tel:+33656793465" class="btn btn--ghost-dark">Appeler le 06 56 79 34 65</a></li>
+          <li><a href="contact.html" aria-current="page">Contact</a></li>
+          <li class="nav__links-cta"><a href="tel:+33656793465" class="btn btn--frame">Appeler le 06 56 79 34 65</a></li>
         </ul>
 
         <div class="nav__actions">
-          <a href="tel:+33656793465" class="nav__phone" aria-label="Appeler le 06 56 79 34 65">
-            <span class="nav__phone-icon">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
-            </span>
-            <span class="nav__phone-text"><small>Appelez-nous</small>06 56 79 34 65</span>
-          </a>
-          <a href="contact.html#devis" class="btn btn--primary btn--sm nav__cta">
-            Demander un devis
-          </a>
+          <a href="tel:+33656793465" class="nav__phone" aria-label="Appeler le 06 56 79 34 65">06 56 79 34 65</a>
+          <a href="contact.html#devis" class="btn btn--frame nav__cta">Demander un devis</a>
           <button class="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links">
             <span></span><span></span>
           </button>
@@ -80,80 +63,68 @@
     </nav>
   </header>
 
-  <main>
+  <main id="main">
 
-    <section class="hero hero--page hero--short" aria-label="Contact">
-      <div class="hero__media">
-        <img src="https://images.pexels.com/photos/5259822/pexels-photo-5259822.jpeg?auto=compress&cs=tinysrgb&w=2200"
-             srcset="https://images.pexels.com/photos/5259822/pexels-photo-5259822.jpeg?auto=compress&cs=tinysrgb&w=800 800w, https://images.pexels.com/photos/5259822/pexels-photo-5259822.jpeg?auto=compress&cs=tinysrgb&w=1400 1400w, https://images.pexels.com/photos/5259822/pexels-photo-5259822.jpeg?auto=compress&cs=tinysrgb&w=2200 2200w"
-             sizes="100vw"
-             alt="Toit en ardoise avec lucarnes" fetchpriority="high">
-      </div>
-      <div class="hero__overlay" aria-hidden="true"></div>
-      <div class="container hero__content">
-        <nav class="breadcrumb hero__eyebrow" aria-label="Fil d'Ariane">
-          <a href="index.html">Accueil</a><span aria-hidden="true">/</span><span aria-current="page">Contact</span>
-        </nav>
-        <h1 class="hero__title">
-          <span class="eyebrow eyebrow--light hero__kicker"><span class="eyebrow__dot"></span>Devis de travaux à Orthez</span>
-          <span class="line"><span>Parlons de</span></span>
-          <span class="line"><span><em>votre projet.</em></span></span>
-        </h1>
-        <p class="hero__lead">Visite et devis gratuits, sans engagement.</p>
+    <section class="hero hero--page" aria-label="Contact">
+      <div class="container">
+        <div class="hero__grid">
+          <div class="hero__text">
+            <nav class="breadcrumb" aria-label="Fil d’Ariane"><a href="index.html">Accueil</a><span aria-hidden="true">/</span><span aria-current="page">Contact</span></nav>
+            <h1>
+              <span class="kicker">Devis de travaux à Orthez</span>
+              <span class="fit">Parlons de</span>
+              <span class="fit">votre projet</span>
+            </h1>
+            <p class="lead">Visite et devis gratuits, sans engagement.</p>
+          </div>
+          <figure class="plate hero__plate"><div data-slot="hero" data-alt="Un toit de la région refait par l’entreprise"><img src="https://images.pexels.com/photos/5259822/pexels-photo-5259822.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400" srcset="https://images.pexels.com/photos/5259822/pexels-photo-5259822.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800 800w, https://images.pexels.com/photos/5259822/pexels-photo-5259822.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400 1400w, https://images.pexels.com/photos/5259822/pexels-photo-5259822.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=2200 2200w" sizes="(min-width: 60rem) 40vw, 100vw" width="1400" height="1050" alt="Toit en ardoise avec lucarnes" style="object-position: 50% 85%" fetchpriority="high"></div></figure>
+        </div>
       </div>
     </section>
 
-    <div class="sheet">
-
-      <section class="section contact-page" id="devis">
+      <section class="section contact-page" id="devis" aria-labelledby="devis-title">
         <div class="container">
-          <div class="contact-box" data-reveal>
-
-            <div class="contact-box__head">
-              <h2>Demande de devis gratuit</h2>
-              <p class="contact-box__intro">Appelez-nous&nbsp;: après un premier échange, nous venons voir le chantier pour établir un devis précis.</p>
-              <p class="contact-box__label">Pour aller plus vite, précisez-nous&nbsp;:</p>
-              <ul class="checklist contact-box__list">
-                <li>Le type de travaux (<a href="services.html#toiture">toiture</a>, <a href="services.html#maconnerie">maçonnerie</a>, <a href="services.html#interieur">intérieur</a>)</li>
-                <li>Votre commune</li>
-                <li>Le délai souhaité</li>
-              </ul>
-            </div>
-
-            <div class="contact-cards">
-              <a href="tel:+33656793465" class="contact-card contact-card--accent">
-                <span class="contact-card__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg></span>
-                <span><small>Mobile</small><strong>06 56 79 34 65</strong><em>Le plus rapide pour nous joindre</em></span>
-              </a>
-              <a href="tel:+33951055738" class="contact-card">
-                <span class="contact-card__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M9 11h6M9 15h2M13 15h2"/></svg></span>
-                <span><small>Fixe</small><strong>09 51 05 57 38</strong></span>
-              </a>
-              <div class="contact-card">
-                <span class="contact-card__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
-                <span><small>Basés à</small><strong>64300 Orthez</strong></span>
+          <div class="desk contact-box">
+            <div class="desk__inner">
+              <div class="desk__head contact-box__head prose">
+                <h2 id="devis-title">Demande de devis gratuit</h2>
+                <p class="lead">Appelez-nous&nbsp;: après un premier échange, nous venons voir le chantier pour établir un devis précis.</p>
+                <p class="desk__label">Pour aller plus vite, précisez-nous&nbsp;:</p>
+                <ul class="ticks">
+                  <li>Le type de travaux (<a href="services.html#toiture">toiture</a>, <a href="services.html#maconnerie">maçonnerie</a>, <a href="services.html#interieur">intérieur</a>)</li>
+                  <li>Votre commune</li>
+                  <li>Le délai souhaité</li>
+                </ul>
               </div>
-              <p class="contact-box__note">Pas de réponse&nbsp;? Laissez un message avec votre nom et votre commune, nous vous rappelons.</p>
+              <dl class="desk__lines contact-cards">
+                <div>
+                  <dt>Mobile, le plus rapide pour nous joindre</dt>
+                  <dd><a href="tel:+33656793465" class="phone-line" aria-label="Appeler le 06 56 79 34 65"><span class="fit">06 56 79 34 65</span></a></dd>
+                </div>
+                <div>
+                  <dt>Fixe</dt>
+                  <dd><a href="tel:+33951055738">09 51 05 57 38</a></dd>
+                </div>
+                <div>
+                  <dt>Basés à</dt>
+                  <dd><strong>64300 Orthez</strong></dd>
+                </div>
+                <p class="desk__note small">Pas de réponse&nbsp;? Laissez un message avec votre nom et votre commune, nous vous rappelons.</p>
+              </dl>
             </div>
-
           </div>
         </div>
       </section>
 
-      <section class="section zone" id="zone">
-        <div class="container zone__grid">
-          <div class="zone__text">
-            <p class="eyebrow" data-reveal><span class="eyebrow__dot"></span>Zone d'intervention</p>
-            <h2 class="section-title" data-reveal>Dans le 64, le 40 et le 65.</h2>
-            <p data-reveal>
-              Basés à Orthez, nous intervenons dans les Pyrénées-Atlantiques, les Landes
-              et les Hautes-Pyrénées. Être proches, c'est pouvoir venir vite et assurer un vrai suivi après les travaux.
-            </p>
-            <p class="zone__note" data-reveal>Un doute sur votre commune&nbsp;? <a href="tel:+33656793465">Appelez-nous</a>, nous vous répondons tout de suite.</p>
+      <section class="band band--paper zone" id="zone" aria-labelledby="zone-title">
+        <div class="container grid12">
+          <div class="zone__text prose">
+            <h2 id="zone-title">Dans le 64, le 40 et le 65.</h2>
+            <p>Basés à Orthez, nous intervenons dans les Pyrénées-Atlantiques, les Landes et les Hautes-Pyrénées. Être proches, c’est pouvoir venir vite et assurer un vrai suivi après les travaux.</p>
+            <p class="zone__note">Un doute sur votre commune&nbsp;? <a href="tel:+33656793465">Appelez-nous</a>, nous vous répondons tout de suite.</p>
           </div>
-
-          <div class="zone__map" data-reveal aria-hidden="true">
-            <svg viewBox="0 0 400 400">
+          <div class="zone__map">
+            <svg viewBox="0 0 400 400" role="img" aria-label="Schéma de la zone d’intervention autour d’Orthez : Dax, Mont-de-Marsan, Bayonne, Pau et Tarbes">
               <circle class="ring ring--3" cx="200" cy="200" r="180"/>
               <circle class="ring ring--2" cx="200" cy="200" r="125"/>
               <circle class="ring ring--1" cx="200" cy="200" r="70"/>
@@ -162,29 +133,25 @@
               <g class="town"><circle cx="72" cy="200" r="5"/><text x="72" y="226" text-anchor="middle">Bayonne</text></g>
               <g class="town"><circle cx="272" cy="247" r="5"/><text x="284" y="251">Pau</text></g>
               <g class="town"><circle cx="355" cy="265" r="5"/><text x="355" y="291" text-anchor="middle">Tarbes</text></g>
+              <g class="home"><circle cx="200" cy="200" r="9"/><text x="200" y="232" text-anchor="middle">Orthez</text></g>
             </svg>
-            <div class="zone__pin">
-              <span class="zone__pulse"></span>
-              <span class="zone__pin-label">Orthez</span>
-            </div>
           </div>
         </div>
       </section>
 
-    </div>
   </main>
 
   <footer class="footer">
-    <div class="container footer__grid">
-      <div class="footer__brand">
-        <a href="index.html" class="logo logo--light">
+    <div class="container grid12">
+      <div class="footer__letter">
+        <a href="index.html" class="logo">
           <svg class="logo__mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M4 22 20 8l16 14" /><path d="M10 18v14h20V18" /><path d="M28 12V7h4v8.5" /></svg>
-          <span class="logo__text">TF Renov64<small>Rénovation · Construction</small></span>
+          <span class="logo__text">TF Renov64<small>Rénovation et construction</small></span>
         </a>
         <p>Rénovation et construction à Orthez. Toiture, maçonnerie et intérieur, dans le 64, le 40 et le 65.</p>
       </div>
-      <div>
-        <h4>Navigation</h4>
+      <div class="footer__col">
+        <h2>Navigation</h2>
         <ul>
           <li><a href="index.html">Accueil</a></li>
           <li><a href="a-propos.html">À propos</a></li>
@@ -192,16 +159,16 @@
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
-      <div>
-        <h4>Services</h4>
+      <div class="footer__col">
+        <h2>Services</h2>
         <ul>
           <li><a href="services.html#toiture">Toiture</a></li>
           <li><a href="services.html#maconnerie">Maçonnerie &amp; façades</a></li>
           <li><a href="services.html#interieur">Rénovation intérieure</a></li>
         </ul>
       </div>
-      <div class="footer__contact">
-        <h4>Contact</h4>
+      <div class="footer__col footer__contact">
+        <h2>Contact</h2>
         <ul>
           <li><a href="tel:+33656793465">Mobile : 06 56 79 34 65</a></li>
           <li><a href="tel:+33951055738">Fixe : 09 51 05 57 38</a></li>
@@ -209,22 +176,19 @@
         </ul>
       </div>
     </div>
-    <div class="container footer__bottom">
-      <p>© <span id="year">2026</span> TF Renov64 · SIRET 791 122 328 00028</p>
-      <p><a href="mentions-legales.html">Mentions légales</a> · <a href="mentions-legales.html#confidentialite">Confidentialité</a></p>
+    <div class="container">
+      <div class="footer__bottom">
+        <p><span>© <span id="year">2026</span> TF Renov64</span><span>SIRET 791 122 328 00028</span></p>
+        <p><a href="mentions-legales.html">Mentions légales</a><a href="mentions-legales.html#confidentialite">Confidentialité</a></p>
+      </div>
     </div>
   </footer>
 
   <div class="mobile-bar">
-    <a href="tel:+33656793465" class="mobile-bar__call">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
-      Appeler
-    </a>
-    <a href="contact.html#devis" class="btn btn--primary">Demander un devis</a>
+    <a href="tel:+33656793465" class="btn btn--frame mobile-bar__call"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Appeler</a>
+    <a href="contact.html#devis" class="btn">Demander un devis</a>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

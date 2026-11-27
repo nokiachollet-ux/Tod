@@ -18,14 +18,11 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-  <script>
-    document.documentElement.classList.add('js');
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && window.innerHeight <= 1600) document.documentElement.classList.add('anim');
-  </script>
+  <script>document.documentElement.classList.add('js');</script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;500;600&family=Bevan&family=Six+Caps&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script type="application/ld+json">
   {
@@ -53,48 +50,34 @@
 </head>
 <body class="page-home">
 
+  <a class="skip" href="#main">Aller au contenu</a>
+
   <header class="site-header" id="top">
     <div class="topbar">
       <div class="container topbar__inner">
-        <p class="topbar__zone">
-          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg>
-          <span>Pyrénées-Atlantiques · Landes · Hautes-Pyrénées</span>
-        </p>
-        <div class="topbar__links">
-          <a href="tel:+33951055738">Fixe : 09 51 05 57 38</a>
-        </div>
+        <p class="topbar__zone">Pyrénées-Atlantiques, Landes et Hautes-Pyrénées</p>
+        <a href="tel:+33951055738">Fixe : 09 51 05 57 38</a>
       </div>
     </div>
 
     <nav class="nav" aria-label="Navigation principale">
       <div class="container nav__inner">
-        <a href="index.html" class="logo" aria-label="TF Renov64, retour à l'accueil">
-          <svg class="logo__mark" viewBox="0 0 40 40" aria-hidden="true">
-            <path d="M4 22 20 8l16 14" />
-            <path d="M10 18v14h20V18" />
-            <path d="M28 12V7h4v8.5" />
-          </svg>
-          <span class="logo__text">TF Renov64<small>Rénovation · Construction</small></span>
+        <a href="index.html" class="logo" aria-label="TF Renov64, retour à l’accueil">
+          <svg class="logo__mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M4 22 20 8l16 14" /><path d="M10 18v14h20V18" /><path d="M28 12V7h4v8.5" /></svg>
+          <span class="logo__text">TF Renov64<small>Rénovation et construction</small></span>
         </a>
 
         <ul class="nav__links" id="nav-links">
-          <li><a href="index.html" class="is-active" aria-current="page">Accueil</a></li>
+          <li><a href="index.html" aria-current="page">Accueil</a></li>
           <li><a href="a-propos.html">À propos</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <li class="nav__links-cta"><a href="tel:+33656793465" class="btn btn--ghost-dark">Appeler le 06 56 79 34 65</a></li>
+          <li class="nav__links-cta"><a href="tel:+33656793465" class="btn btn--frame">Appeler le 06 56 79 34 65</a></li>
         </ul>
 
         <div class="nav__actions">
-          <a href="tel:+33656793465" class="nav__phone" aria-label="Appeler le 06 56 79 34 65">
-            <span class="nav__phone-icon">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
-            </span>
-            <span class="nav__phone-text"><small>Appelez-nous</small>06 56 79 34 65</span>
-          </a>
-          <a href="contact.html#devis" class="btn btn--primary btn--sm nav__cta">
-            Demander un devis
-          </a>
+          <a href="tel:+33656793465" class="nav__phone" aria-label="Appeler le 06 56 79 34 65">06 56 79 34 65</a>
+          <a href="contact.html#devis" class="btn btn--frame nav__cta">Demander un devis</a>
           <button class="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links">
             <span></span><span></span>
           </button>
@@ -103,198 +86,119 @@
     </nav>
   </header>
 
-<main>
+  <main id="main">
 
     <section class="hero" aria-label="Présentation">
-      <div class="hero__media">
-        <img src="https://images.unsplash.com/photo-1745478433539-90d9a2e8579e?auto=format&fit=crop&w=2200&q=80"
-             srcset="https://images.unsplash.com/photo-1745478433539-90d9a2e8579e?auto=format&fit=crop&w=800&q=80 800w, https://images.unsplash.com/photo-1745478433539-90d9a2e8579e?auto=format&fit=crop&w=1400&q=80 1400w, https://images.unsplash.com/photo-1745478433539-90d9a2e8579e?auto=format&fit=crop&w=2200&q=80 2200w"
-             sizes="100vw"
-             alt="Toiture en cours de réfection : tuiles neuves posées sur les liteaux" fetchpriority="high">
-      </div>
-      <div class="hero__overlay" aria-hidden="true"></div>
-
-      <div class="container hero__content">
-        <h1 class="hero__title">
-          <span class="eyebrow eyebrow--light hero__kicker"><span class="eyebrow__dot"></span>Rénovation &amp; construction à Orthez</span>
-          <span class="line"><span>Votre maison,</span></span>
-          <span class="line"><span>du toit</span></span>
-          <span class="line"><span><em>aux finitions.</em></span></span>
-        </h1>
-        <p class="hero__lead">
-          Basés à Orthez, nous rénovons votre maison à l'extérieur comme à l'intérieur,
-          dans le 64, le 40 et le 65.
-        </p>
-        <div class="hero__actions">
-          <a href="contact.html#devis" class="btn btn--primary btn--lg">
-            Demander un devis gratuit
-            <svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
-          <a href="tel:+33656793465" class="btn btn--glass btn--lg">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
-            06 56 79 34 65
-          </a>
+      <div class="container hero__grid">
+        <div class="hero__text">
+          <h1>
+            <span class="kicker">Rénovation &amp; construction à Orthez</span>
+            <span class="fit">Votre maison,</span>
+            <span class="fit">du toit aux finitions</span>
+          </h1>
+          <p class="lead">Basés à Orthez, nous rénovons votre maison à l’extérieur comme à l’intérieur, dans le 64, le 40 et le 65.</p>
+          <a href="tel:+33656793465" class="phone-line" aria-label="Appeler le 06 56 79 34 65"><span class="fit">06 56 79 34 65</span></a>
+          <div class="hero__actions">
+            <a href="contact.html#devis" class="btn">Demander un devis gratuit</a>
+          </div>
         </div>
+        <figure class="plate hero__plate"><div data-slot="hero" data-alt="Une toiture de la région en cours de réfection, photographiée sur un chantier de l’entreprise"><img src="https://images.unsplash.com/photo-1745478433539-90d9a2e8579e?auto=format&amp;fit=crop&amp;w=1400&amp;q=80" srcset="https://images.unsplash.com/photo-1745478433539-90d9a2e8579e?auto=format&amp;fit=crop&amp;w=800&amp;q=80 800w, https://images.unsplash.com/photo-1745478433539-90d9a2e8579e?auto=format&amp;fit=crop&amp;w=1400&amp;q=80 1400w, https://images.unsplash.com/photo-1745478433539-90d9a2e8579e?auto=format&amp;fit=crop&amp;w=2200&amp;q=80 2200w" sizes="(min-width: 60rem) 55vw, 100vw" width="1400" height="1050" alt="Toiture en cours de réfection : tuiles neuves posées sur les liteaux" fetchpriority="high"></div></figure>
       </div>
-
-      <a href="#services" class="hero__scroll" aria-label="Faire défiler vers le contenu">
-        <span>Découvrir</span>
-        <span class="hero__scroll-line"></span>
-      </a>
     </section>
 
-    <div class="sheet">
-
-      <section class="section services" id="services">
+      <section class="section services" id="services" aria-labelledby="services-title">
         <div class="container">
-          <header class="section-head">
-            <p class="eyebrow" data-reveal><span class="eyebrow__dot"></span>Nos métiers</p>
-            <h2 class="section-title" data-reveal>Trois domaines,<br>une seule entreprise.</h2>
-            <p class="section-intro" data-reveal>
-              Pour vous y retrouver facilement, nos métiers sont regroupés en trois familles.
-            </p>
+          <header class="head">
+            <h2 id="services-title">Trois domaines, une seule entreprise.</h2>
+            <p class="lead">Pour vous y retrouver facilement, nos métiers sont regroupés en trois familles.</p>
           </header>
 
-          <div class="services__grid">
-            <article class="service-card" data-reveal>
-              <div class="service-card__media">
-                <img src="https://images.pexels.com/photos/10971733/pexels-photo-10971733.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Lucarne et couverture en ardoise sur une maison" loading="lazy">
-              </div>
-              <div class="service-card__body">
-                <span class="service-card__num">01</span>
+          <ul class="trades">
+            <li class="trade trade--lead">
+              <figure class="plate "><div data-slot="toiture" data-alt="Un toit refait par l’entreprise"><img src="https://images.pexels.com/photos/10971733/pexels-photo-10971733.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400" srcset="https://images.pexels.com/photos/10971733/pexels-photo-10971733.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=800 800w, https://images.pexels.com/photos/10971733/pexels-photo-10971733.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400 1400w, https://images.pexels.com/photos/10971733/pexels-photo-10971733.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=2200 2200w" sizes="(min-width: 60rem) 50vw, 100vw" width="1400" height="1050" alt="Lucarne et couverture en ardoise sur une maison" loading="lazy"></div></figure>
+              <div class="trade__body">
                 <h3>Toiture</h3>
-                <p>Un toit sain et étanche, de la charpente jusqu'aux gouttières.</p>
-                <ul class="service-card__tags" aria-label="Métiers"><li>Couverture</li><li>Charpente</li><li>Zinguerie</li></ul>
-                <a href="services.html#toiture" class="link-arrow">Nos travaux de toiture <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                <p>Un toit sain et étanche, de la charpente jusqu’aux gouttières.</p>
+                <ul class="tags" aria-label="Métiers"><li>Couverture</li><li>Charpente</li><li>Zinguerie</li></ul>
+                <a href="services.html#toiture" class="link">Nos travaux de toiture</a>
               </div>
-            </article>
-            <article class="service-card" data-reveal>
-              <div class="service-card__media">
-                <img src="https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?auto=format&fit=crop&w=1000&q=80" alt="Mur en briques ouvert et étayé pendant une rénovation" loading="lazy">
-              </div>
-              <div class="service-card__body">
-                <span class="service-card__num">02</span>
+            </li>
+            <li class="trade">
+              <figure class="plate "><div data-slot="maconnerie" data-alt="Un mur ou une façade repris par l’entreprise"><img src="https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?auto=format&amp;fit=crop&amp;w=1400&amp;q=80" srcset="https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?auto=format&amp;fit=crop&amp;w=800&amp;q=80 800w, https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?auto=format&amp;fit=crop&amp;w=1400&amp;q=80 1400w, https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?auto=format&amp;fit=crop&amp;w=2200&amp;q=80 2200w" sizes="(min-width: 60rem) 36vw, 100vw" width="1400" height="1050" alt="Mur en briques ouvert et étayé pendant une rénovation" loading="lazy"></div></figure>
+              <div class="trade__body">
                 <h3>Maçonnerie &amp; façades</h3>
                 <p>Des murs solides et une façade remise à neuf.</p>
-                <ul class="service-card__tags" aria-label="Métiers"><li>Maçonnerie</li><li>Enduits</li><li>Peinture extérieure</li></ul>
-                <a href="services.html#maconnerie" class="link-arrow">Nos travaux de maçonnerie <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                <ul class="tags" aria-label="Métiers"><li>Maçonnerie</li><li>Enduits</li><li>Peinture extérieure</li></ul>
+                <a href="services.html#maconnerie" class="link">Nos travaux de maçonnerie</a>
               </div>
-            </article>
-            <article class="service-card" data-reveal>
-              <div class="service-card__media">
-                <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1000&q=80" alt="Salle de bain moderne avec douche vitrée et double vasque" loading="lazy">
-              </div>
-              <div class="service-card__body">
-                <span class="service-card__num">03</span>
+            </li>
+            <li class="trade">
+              <figure class="plate "><div data-slot="interieur" data-alt="Une salle de bains rénovée par l’entreprise"><img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&amp;fit=crop&amp;w=1400&amp;q=80" srcset="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&amp;fit=crop&amp;w=800&amp;q=80 800w, https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&amp;fit=crop&amp;w=1400&amp;q=80 1400w, https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&amp;fit=crop&amp;w=2200&amp;q=80 2200w" sizes="(min-width: 60rem) 36vw, 100vw" width="1400" height="1050" alt="Salle de bain moderne avec douche vitrée et double vasque" loading="lazy"></div></figure>
+              <div class="trade__body">
                 <h3>Rénovation intérieure</h3>
-                <p>Des pièces refaites à neuf, jusqu'à la salle de bains complète.</p>
-                <ul class="service-card__tags" aria-label="Métiers"><li>Placo</li><li>Peinture</li><li>Carrelage</li><li>Salle de bains</li></ul>
-                <a href="services.html#interieur" class="link-arrow">Nos travaux d'intérieur <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                <p>Des pièces refaites à neuf, jusqu’à la salle de bains complète.</p>
+                <ul class="tags" aria-label="Métiers"><li>Placo</li><li>Peinture</li><li>Carrelage</li><li>Salle de bains</li></ul>
+                <a href="services.html#interieur" class="link">Nos travaux d’intérieur</a>
               </div>
-            </article>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="band band--ink guarantees" aria-labelledby="garanties-title">
+        <div class="container grid12">
+          <h2 id="garanties-title">Vous êtes protégé, avant, pendant et après.</h2>
+          <dl class="particulars">
+            <div><dt>Garantie décennale</dt><dd>Nos travaux sont couverts par une assurance décennale. Attestation sur simple demande.</dd></div>
+            <div><dt>Devis gratuit &amp; détaillé</dt><dd>Chaque poste est chiffré clairement, sans engagement de votre part.</dd></div>
+            <div><dt>Chantier propre</dt><dd>Votre maison est protégée pendant les travaux et le chantier est rangé chaque soir.</dd></div>
+            <div><dt>Suivi après travaux</dt><dd>Nous restons joignables une fois le chantier terminé, pour le moindre réglage.</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="section about showcase" id="apropos" aria-labelledby="apropos-title">
+        <div class="container">
+          <header class="head">
+            <h2 id="apropos-title">Un seul interlocuteur pour tous vos travaux.</h2>
+            <p>Refaire un toit, reprendre une façade puis rénover une salle de bains, c’est souvent plusieurs entreprises à coordonner. Avec TF Renov64, vous avez un seul contact, un seul devis et un planning cohérent.</p>
+          </header>
+          <figure class="plate plate--wide"><div data-slot="equipe" data-alt="L’équipe de TF Renov64 sur un de ses chantiers"><img src="https://images.unsplash.com/photo-1726589004565-bedfba94d3a2?auto=format&amp;fit=crop&amp;w=1400&amp;q=80" srcset="https://images.unsplash.com/photo-1726589004565-bedfba94d3a2?auto=format&amp;fit=crop&amp;w=800&amp;q=80 800w, https://images.unsplash.com/photo-1726589004565-bedfba94d3a2?auto=format&amp;fit=crop&amp;w=1400&amp;q=80 1400w, https://images.unsplash.com/photo-1726589004565-bedfba94d3a2?auto=format&amp;fit=crop&amp;w=2200&amp;q=80 2200w" sizes="100vw" width="1400" height="1050" alt="Couvreur au travail sur un toit en tuiles, derrière un échafaudage" style="object-position: 50% 35%" loading="lazy"></div></figure>
+          <ul class="facts">
+            <li>Les travaux s’enchaînent sans temps mort</li>
+            <li>Une entreprise basée à Orthez, proche de vos chantiers</li>
+            <li>Des conseils adaptés à votre maison et à votre budget</li>
+          </ul>
+          <a href="a-propos.html" class="link">Découvrir l’entreprise</a>
+        </div>
+      </section>
+
+      <section class="band band--accent close" aria-labelledby="close-title">
+        <div class="container grid12">
+          <div class="close__text">
+            <h2 id="close-title">Des travaux en vue&nbsp;? Nous venons sur place.</h2>
+            <p>Décrivez-nous votre besoin&nbsp;: nous convenons ensemble d’un rendez-vous chez vous.</p>
+          </div>
+          <div class="close__act">
+            <a href="tel:+33656793465" class="phone-line" aria-label="Appeler le 06 56 79 34 65"><span class="fit">06 56 79 34 65</span></a>
+            <a href="contact.html#devis" class="btn">Demander un devis</a>
           </div>
         </div>
       </section>
 
-      <section class="guarantees" aria-labelledby="garanties-title">
-        <div class="guarantees__panel">
-          <div class="container">
-            <header class="section-head section-head--center">
-              <p class="eyebrow eyebrow--light" data-reveal><span class="eyebrow__dot"></span>Nos garanties</p>
-              <h2 class="section-title section-title--light" id="garanties-title" data-reveal>Vous êtes protégé,<br>avant, pendant et après.</h2>
-            </header>
-
-            <div class="guarantees__grid">
-              <div class="guarantee" data-reveal>
-                <div class="guarantee__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></div>
-                <h3>Garantie décennale</h3>
-                <p>Nos travaux sont couverts par une assurance décennale. Attestation sur simple demande.</p>
-              </div>
-              <div class="guarantee" data-reveal>
-                <div class="guarantee__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></svg></div>
-                <h3>Devis gratuit &amp; détaillé</h3>
-                <p>Chaque poste est chiffré clairement, sans engagement de votre part.</p>
-              </div>
-              <div class="guarantee" data-reveal>
-                <div class="guarantee__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="m9 15 2 2 4-4"/></svg></div>
-                <h3>Chantier propre</h3>
-                <p>Votre maison est protégée pendant les travaux et le chantier est rangé chaque soir.</p>
-              </div>
-              <div class="guarantee" data-reveal>
-                <div class="guarantee__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
-                <h3>Suivi après travaux</h3>
-                <p>Nous restons joignables une fois le chantier terminé, pour le moindre réglage.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section about" id="apropos">
-        <div class="container about__grid">
-          <div class="about__visual">
-            <div class="about__img" data-reveal-img data-parallax>
-              <img src="https://images.unsplash.com/photo-1726589004565-bedfba94d3a2?auto=format&fit=crop&w=1400&q=80" alt="Couvreur au travail sur un toit en tuiles, derrière un échafaudage" loading="lazy">
-            </div>
-          </div>
-
-          <div class="about__text">
-            <p class="eyebrow" data-reveal><span class="eyebrow__dot"></span>Une entreprise locale</p>
-            <h2 class="section-title" data-reveal>Un seul interlocuteur pour tous vos travaux.</h2>
-            <p data-reveal>
-              Refaire un toit, reprendre une façade puis rénover une salle de bains, c'est souvent
-              plusieurs entreprises à coordonner. Avec TF Renov64, vous avez un seul contact,
-              un seul devis et un planning cohérent.
-            </p>
-            <ul class="checklist" data-reveal>
-              <li>Les travaux s'enchaînent sans temps mort</li>
-              <li>Une entreprise basée à Orthez, proche de vos chantiers</li>
-              <li>Des conseils adaptés à votre maison et à votre budget</li>
-            </ul>
-            <a href="a-propos.html" class="btn btn--primary" data-reveal>
-              Découvrir l'entreprise
-              <svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section class="contact cta-band">
-        <div class="contact__bg" data-parallax>
-          <img src="https://images.pexels.com/photos/5259822/pexels-photo-5259822.jpeg?auto=compress&cs=tinysrgb&w=2000"
-             srcset="https://images.pexels.com/photos/5259822/pexels-photo-5259822.jpeg?auto=compress&cs=tinysrgb&w=800 800w, https://images.pexels.com/photos/5259822/pexels-photo-5259822.jpeg?auto=compress&cs=tinysrgb&w=1400 1400w, https://images.pexels.com/photos/5259822/pexels-photo-5259822.jpeg?auto=compress&cs=tinysrgb&w=2000 2000w"
-             sizes="100vw" alt="" loading="lazy">
-        </div>
-        <div class="container cta-band__inner">
-          <div>
-            <p class="eyebrow eyebrow--light" data-reveal><span class="eyebrow__dot"></span>Parlons de votre projet</p>
-            <h2 class="section-title section-title--light" data-reveal>Des travaux en vue&nbsp;?<br>Nous venons sur place.</h2>
-            <p data-reveal>Décrivez-nous votre besoin&nbsp;: nous convenons ensemble d'un rendez-vous chez vous.</p>
-          </div>
-          <div class="cta-band__actions" data-reveal>
-            <a href="contact.html#devis" class="btn btn--primary btn--lg">Demander un devis
-              <svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-            <a href="tel:+33656793465" class="btn btn--glass btn--lg">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
-              06 56 79 34 65</a>
-          </div>
-        </div>
-      </section>
-
-    </div>
   </main>
 
   <footer class="footer">
-    <div class="container footer__grid">
-      <div class="footer__brand">
-        <a href="index.html" class="logo logo--light">
+    <div class="container grid12">
+      <div class="footer__letter">
+        <a href="index.html" class="logo">
           <svg class="logo__mark" viewBox="0 0 40 40" aria-hidden="true"><path d="M4 22 20 8l16 14" /><path d="M10 18v14h20V18" /><path d="M28 12V7h4v8.5" /></svg>
-          <span class="logo__text">TF Renov64<small>Rénovation · Construction</small></span>
+          <span class="logo__text">TF Renov64<small>Rénovation et construction</small></span>
         </a>
         <p>Rénovation et construction à Orthez. Toiture, maçonnerie et intérieur, dans le 64, le 40 et le 65.</p>
       </div>
-      <div>
-        <h4>Navigation</h4>
+      <div class="footer__col">
+        <h2>Navigation</h2>
         <ul>
           <li><a href="index.html">Accueil</a></li>
           <li><a href="a-propos.html">À propos</a></li>
@@ -302,16 +206,16 @@
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
-      <div>
-        <h4>Services</h4>
+      <div class="footer__col">
+        <h2>Services</h2>
         <ul>
           <li><a href="services.html#toiture">Toiture</a></li>
           <li><a href="services.html#maconnerie">Maçonnerie &amp; façades</a></li>
           <li><a href="services.html#interieur">Rénovation intérieure</a></li>
         </ul>
       </div>
-      <div class="footer__contact">
-        <h4>Contact</h4>
+      <div class="footer__col footer__contact">
+        <h2>Contact</h2>
         <ul>
           <li><a href="tel:+33656793465">Mobile : 06 56 79 34 65</a></li>
           <li><a href="tel:+33951055738">Fixe : 09 51 05 57 38</a></li>
@@ -319,22 +223,19 @@
         </ul>
       </div>
     </div>
-    <div class="container footer__bottom">
-      <p>© <span id="year">2026</span> TF Renov64 · SIRET 791 122 328 00028</p>
-      <p><a href="mentions-legales.html">Mentions légales</a> · <a href="mentions-legales.html#confidentialite">Confidentialité</a></p>
+    <div class="container">
+      <div class="footer__bottom">
+        <p><span>© <span id="year">2026</span> TF Renov64</span><span>SIRET 791 122 328 00028</span></p>
+        <p><a href="mentions-legales.html">Mentions légales</a><a href="mentions-legales.html#confidentialite">Confidentialité</a></p>
+      </div>
     </div>
   </footer>
 
   <div class="mobile-bar">
-    <a href="tel:+33656793465" class="mobile-bar__call">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>
-      Appeler
-    </a>
-    <a href="contact.html#devis" class="btn btn--primary">Demander un devis</a>
+    <a href="tel:+33656793465" class="btn btn--frame mobile-bar__call"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Appeler</a>
+    <a href="contact.html#devis" class="btn">Demander un devis</a>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
